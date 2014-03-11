@@ -1,0 +1,67 @@
+/**
+ * Sprites  
+ */
+
+@import "compass/utilities/sprites";
+
+/**
+ * Spriteme
+ * Use: @include spriteme($point, $icons, $icon-class, $retina);
+ * Example: @include spriteme(xs, "sprites/icons/s", "icon", true);
+ */
+
+@mixin icon-default {
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+@mixin spriteme($point) {
+    $icons-map: sprite-map($icon-path + "/" + "#{$point}" + "/*.#{$icon-format}");
+    @include breakpoint($point) {
+        background-image: $icons-map;
+        @each $i in sprite_names($icons-map) {
+            &.icon--#{$i} {
+                background-position: sprite-position($icons-map, $i);
+                @include sprite-dimensions($icons-map, $i);
+            }
+        }
+        @if $use-sprites-retina == true {            
+            $icons-map: sprite-map($icon-path + "/" + "#{$point}" + "-retina/*.#{$icon-format}");
+            @media #{$media-retina} {
+                background-image: $icons-map;
+                @each $i in sprite_names($icons-map) {
+                    &.icon--#{$i} {
+                        background-position: sprite-position($icons-map, $i);
+                        @include sprite-dimensions($icons-map, $i);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Responsive: Sprites
+ */
+
+@if $use-sprites == true {    
+    .#{$icon-class} {
+        @include icon-default;
+        @if $use-responsive == true {
+            @if $screen-xs {
+                @include spriteme(xs);
+            }
+            @if $screen-sm {
+                @include spriteme(sm);
+            }
+            @if $screen-md {
+                @include spriteme(md);
+            }
+            @if $screen-lg {
+                @include spriteme(lg);
+            }
+        } @else {                        
+            @include spriteme(""); // TODO not responsive directory
+        }
+    }
+}

@@ -1,0 +1,49 @@
+/**
+ * Scaffolding
+ * Note: Project settings
+ */
+
+/**
+ * BEM Syntax
+ * .person{}
+ * .person__hand{}
+ * .person--female{}
+ * .person--female__hand{}
+ * .person__hand--left{}
+ */
+
+// Reset the box-sizing
+*,
+*:before,
+*:after {
+    @include box-sizing(border-box);
+}
+
+// Selection text
+@include selection-text($selection-text-color-bg, $selection-text-color);
+
+// Body reset
+html {
+    @include remove-tap-highlight-color;
+    height: 100%;
+}
+
+body {
+    font-family: $font-family-base;
+    @include font-size($font-size-base);
+    @include line-height($font-size-base, $line-height-base);
+    color: $text-color;
+    background-color: $body-bg;
+    height: 100%;
+}
+
+// Images
+img {
+    @include img-responsive;
+}
+
+// Links
+a {
+    @include link-colors($link-color, $link-hover-color, $link-active-color, $link-visited-color, $link-focus-color);
+    @include hover-link;
+}

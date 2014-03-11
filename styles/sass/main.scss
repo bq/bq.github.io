@@ -1,0 +1,30 @@
+// Core variables
+@import 'global/_variables';
+
+// Variables - Defined in app project
+//@import '_variables';
+
+// Mixins
+@import 'global/_mixins';
+
+// Reset
+@import 'global/_reset';
+
+// Fonts - Defined in app project
+//@import '_fonts';
+
+// Media print
+@import 'global/_print';
+
+// Helpers
+@import 'global/_utils';
+
+// Responsive utilities
+@import 'global/_responsive';
+
+// Sprites builder
+//@import 'global/_sprites';
+
+
+//Page components
+@import '_header';

@@ -1,0 +1,48 @@
+/**
+ * Global values
+ */
+
+// Brand colors
+$brand-primary: 		#333333 !default;
+
+// Scaffolding
+$body-bg: 				white !default;
+$text-color: 			$brand-primary !default;
+
+// Links
+$link-color: 			$brand-primary !default;
+$link-hover-color: 		false !default;
+$link-active-color: 	false !default;
+$link-visited-color: 	false !default;
+$link-focus-color: 		false !default;
+
+// Text
+$selection-text-color-bg: 	white !default;
+$selection-text-color: 	$brand-primary !default;
+
+// Typography
+$font-family-base: 		"Arial", Helvetica, Sans-serif !default;
+$font-size-small: 		13 !default;
+$font-size-base: 		16 !default;
+$font-size-medium: 		18 !default;
+$font-size-large: 		20 !default;
+$line-height-base: 		18 !default;
+
+// Components use
+$use-responsive: 		true !default;
+$use-sprites: 			true !default;
+$use-sprites-retina: 	true !default;
+
+// Responsive Breakpoints (value || false)
+$screen-xs: 			767 !default;
+$screen-sm: 			991 !default;
+$screen-md: 			1199 !default;
+$screen-lg: 			$screen-md + 1 !default;
+
+// Sprites settings
+$icon-class: 			"icon";
+$icon-path: 			"icons";
+$icon-format: 			"png";
+
+// @media
+$media-retina: 			"only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2)" !default;

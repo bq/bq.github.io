@@ -1,0 +1,231 @@
+/**
+ * Responsive utilities 
+ */
+
+@mixin responsive-visibility($parent) {
+    #{$parent} {
+        display: block !important;
+    }
+    tr#{$parent} {
+        display: table-row !important;
+    }
+    th#{$parent},
+    td#{$parent} {
+        display: table-cell !important;
+    }
+}
+
+// [converter] $parent hack
+@mixin responsive-invisibility($parent) {
+    #{$parent},
+    tr#{$parent},
+    th#{$parent},
+    td#{$parent} {
+        display: none !important;
+    }
+}
+
+/* 
+ * Breakpoints
+ * Use: @include breakpoint(point);
+ * Example: 
+ * .layout {
+ *      width: 75%;
+ *      @include breakpoint(xs) { width: 60%; }
+ *      @include breakpoint(sm) { width: 80%; }
+ *      @include breakpoint(md) { width: 95%; }
+ *      @include breakpoint(lg) { width: 95%; }
+ *  }
+ */
+
+// Variables
+$max-width-xs: "max-width: " + em($screen-xs);
+$min-width-xs: "min-width: " + em($screen-xs + 1);
+$max-width-sm: "max-width: " + em($screen-sm);
+$min-width-sm: "min-width: " + em($screen-sm + 1);
+$max-width-md: "max-width: " + em($screen-md);
+$min-width-lg: "min-width: " + em($screen-lg);
+
+@mixin breakpoint($point) {
+    @if $point == "" {        
+        @content;
+    }
+    @if $screen-xs and $point == xs {
+        @media (#{$max-width-xs}) {
+            @content;
+        }
+    }
+    @else if $screen-sm and $point == sm {
+        @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+            @content;
+        }
+    }
+    @else if $screen-md and $point == md {
+        @media (#{$min-width-sm}) and (#{$max-width-md}) {
+            @content;
+        }
+    }
+    @else if $screen-lg and $point == lg {
+        @media (#{$min-width-lg}) {
+            @content;
+        }
+    }
+}
+
+@if $use-responsive == true {
+
+    /**
+     * Responsive: Utility classes
+     */
+
+    @-ms-viewport {
+        width: device-width;
+    }
+
+    // Visibility utilities
+
+    @include responsive-invisibility(".visible-xs");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-visibility(".visible-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-visibility(".visible-xs.visible-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-visibility(".visible-xs.visible-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-visibility(".visible-xs.visible-lg");
+    }
+
+    @include responsive-invisibility(".visible-sm");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-visibility(".visible-sm.visible-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-visibility(".visible-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-visibility(".visible-sm.visible-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-visibility(".visible-sm.visible-lg");
+    }
+
+    @include responsive-invisibility(".visible-md");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-visibility(".visible-md.visible-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-visibility(".visible-md.visible-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-visibility(".visible-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-visibility(".visible-md.visible-lg");
+    }
+
+    @include responsive-invisibility(".visible-lg");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-visibility(".visible-lg.visible-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-visibility(".visible-lg.visible-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-visibility(".visible-lg.visible-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-visibility(".visible-lg");
+    }
+
+    @include responsive-visibility(".hidden-xs");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-invisibility(".hidden-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-invisibility(".hidden-xs.hidden-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-invisibility(".hidden-xs.hidden-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-invisibility(".hidden-xs.hidden-lg");
+    }
+
+    @include responsive-visibility(".hidden-sm");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-invisibility(".hidden-sm.hidden-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-invisibility(".hidden-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-invisibility(".hidden-sm.hidden-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-invisibility(".hidden-sm.hidden-lg");
+    }
+
+    @include responsive-visibility(".hidden-md");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-invisibility(".hidden-md.hidden-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-invisibility(".hidden-md.hidden-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-invisibility(".hidden-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-invisibility(".hidden-md.hidden-lg");
+    }
+
+    @include responsive-visibility(".hidden-lg");
+
+    @media (#{$max-width-xs}) {
+        @include responsive-invisibility(".hidden-lg.hidden-xs");
+    }
+
+    @media (#{$min-width-xs}) and (#{$max-width-sm}) {
+        @include responsive-invisibility(".hidden-lg.hidden-sm");
+    }
+
+    @media (#{$min-width-sm}) and (#{$max-width-md}) {
+        @include responsive-invisibility(".hidden-lg.hidden-md");
+    }
+
+    @media (#{$min-width-lg}) {
+        @include responsive-invisibility(".hidden-lg");
+    }
+
+}
