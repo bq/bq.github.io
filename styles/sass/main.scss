@@ -1,8 +1,8 @@
-// Core variables
+﻿// Core variables
 @import 'global/_variables';
 
 // Variables - Defined in app project
-//@import '_variables';
+@import '_variables';
 
 // Mixins
 @import 'global/_mixins';
@@ -11,7 +11,7 @@
 @import 'global/_reset';
 
 // Fonts - Defined in app project
-//@import '_fonts';
+@import '_fonts';
 
 // Media print
 @import 'global/_print';
@@ -28,3 +28,14 @@
 
 //Page components
 @import '_header';
+@import '_footer';
+
+body{
+	font-family: 'Lato';
+}
+#main_container{
+	width: 100%;
+}
+.git_element{
+	background: #f2f2f2;
+}
