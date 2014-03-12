@@ -1,4 +1,4 @@
-﻿// Core variables
+// Core variables
 @import 'global/_variables';
 
 // Variables - Defined in app project
@@ -21,6 +21,8 @@
 
 // Responsive utilities
 @import 'global/_responsive';
+// Responsive utilities - Defined in app project
+@import '_responsive';
 
 // Sprites builder
 //@import 'global/_sprites';
@@ -34,8 +36,139 @@ body{
 	font-family: 'Lato';
 }
 #main_container{
+	@extend .clearfix;
 	width: 100%;
+	max-width: 900px;
+}
+#main_container>header h1{
+	font-weight: 900;
+	font-size: 1.2em;
+	padding: 0.3em 2em;
+	border-bottom: 1px solid darken($color_background,10);
+	margin-bottom: 1em;
 }
 .git_element{
-	background: #f2f2f2;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background: $color_background;
+	padding: 1em;
+	margin: 0.5em 0;
+	color: $text-color;
+	text-shadow:1px 1px 0 lighten($color_background,10);
+	border-bottom: 2px solid darken($color_background,10);
+	position: relative;
+	overflow: hidden;
+}
+.git_element:hover{
+	background-color: darken($color_background,5);
+	border-bottom-color: darken($color_background,15);
+}
+
+
+.git_element-link{
+	text-decoration:none;
+}
+#this_proyect{
+	background: $color_blue_1;
+	margin: 2em 0 0 0;
+	color: $color_background;
+	text-shadow:1px 1px 0 darken($color_blue_1,10);
+	border-bottom-color: darken($color_blue_1,10);
+}
+#this_proyect:hover{
+	background: saturate(lighten($color_blue_1,5),10);
+}
+@include breakpoint(xs) {
+	#main_container>header h1{
+		padding: 1em 2em 0.5em;
+	}
+	.git_element{
+		font-size: 1.1em;
+		padding: 2em 1.5em 1.4em;
+		border-top: 1px solid darken($color_background,10);
+		border-left: 1px solid darken($color_background,10);
+		border-right: 1px solid darken($color_background,10);
+		border-bottom-width:4px;
+		&:after{
+			position: absolute;
+			right: -0.15em;
+			bottom: -0.15em;
+			font-size: 3em;
+			text-shadow:none;
+		}
+	}
+	#main_container{
+		width: 80%;
+		margin: 0 auto;
+	}
+	#this_proyect{
+		border-top: 1px solid darken($color_blue_1,10);
+		border-left: 1px solid darken($color_blue_1,10);
+		border-right: 1px solid darken($color_blue_1,10);
+		&:after{
+			content:"\e64a";
+		}
+	}
+	.robotic_proyect{
+		&:after{
+			content:"\e64e";
+			bottom: -0.2em;
+			font-size: 5em;
+			color:$color_robotica;
+		}
+	}
+	.android_proyect{
+		&:after{
+			content:"\e649";
+			color: $color_android;
+		}
+	}
+}
+
+@include breakpoint(sm) {
+	#main_container{
+		width: 70%;
+		margin: 0 auto;
+	}
+	.git_element{
+		width: 47%;
+		float: left;
+		min-height: 5.8em;
+		margin: 0.6em 1.5%; 
+	}
+	#this_proyect{
+		clear: both;
+		width:97%;
+		margin: 2em 1.5%;
+	}
+	#this_proyect{
+		min-height: 5em;
+	}
+}
+
+@include breakpoint(md) {
+	#main_container>header h1{
+		font-size: 1.3em;
+	}
+	.git_element{
+		width: 30%;
+		min-height: 9em;
+		&:after{
+			position: absolute;
+			right: -0.15em;
+			bottom: -0.15em;
+			font-size: 4em;
+		}
+	}
+	.robotic_proyect{
+		&:after{
+			font-size: 5em;	
+		}
+	}
+}
+@include breakpoint(lg) {
+	.git_element{
+		font-size: 1.2em;
+		margin-top: 2em;
+	}
 }

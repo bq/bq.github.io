@@ -1,0 +1,31 @@
+$min-width-xs: "min-width: " + em($screen-xs);
+$min-width-sm: "min-width: " + em($screen-sm);
+$min-width-md: "min-width: " + em($screen-md);
+$min-width-lg: "min-width: " + em($screen-lg);
+
+
+@mixin breakpoint($point) {
+    @if $point == "" {        
+        @content;
+    }
+    @if $screen-xs and $point == xs {
+        @media (#{$min-width-xs}) {
+            @content;
+        }
+    }
+    @else if $screen-sm and $point == sm {
+        @media (#{$min-width-sm}) {
+            @content;
+        }
+    }
+    @else if $screen-md and $point == md {
+        @media (#{$min-width-md}) {
+            @content;
+        }
+    }
+    @else if $screen-lg and $point == lg {
+        @media (#{$min-width-lg}) {
+            @content;
+        }
+    }
+}

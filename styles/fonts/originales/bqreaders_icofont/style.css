@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'bqreaders_icofont';
-	src:url('fonts/bqreaders_icofont.eot?p1e9ks');
-	src:url('fonts/bqreaders_icofont.eot?#iefixp1e9ks') format('embedded-opentype'),
-		url('fonts/bqreaders_icofont.woff?p1e9ks') format('woff'),
-		url('fonts/bqreaders_icofont.ttf?p1e9ks') format('truetype'),
-		url('fonts/bqreaders_icofont.svg?p1e9ks#bqreaders_icofont') format('svg');
+	src:url('fonts/bqreaders_icofont.eot?tccrbx');
+	src:url('fonts/bqreaders_icofont.eot?#iefixtccrbx') format('embedded-opentype'),
+		url('fonts/bqreaders_icofont.woff?tccrbx') format('woff'),
+		url('fonts/bqreaders_icofont.ttf?tccrbx') format('truetype'),
+		url('fonts/bqreaders_icofont.svg?tccrbx#bqreaders_icofont') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -25,6 +25,9 @@
 
 .icon-shopping_bag:before {
 	content: "\e624";
+}
+.icon-robot:before {
+	content: "\e64e";
 }
 .icon-logo_bq:before {
 	content: "\e623";
@@ -88,6 +91,57 @@
 }
 .icon-3G:before {
 	content: "\e643";
+}
+.icon-android:before {
+	content: "\e649";
+}
+.icon-github:before {
+	content: "\e64a";
+}
+.icon-windows8:before {
+	content: "\e64b";
+}
+.icon-apple:before {
+	content: "\e64c";
+}
+.icon-download:before {
+	content: "\e62d";
+}
+.icon-book:before {
+	content: "\e62e";
+}
+.icon-tux:before {
+	content: "\e64d";
+}
+.icon-download2:before {
+	content: "\e628";
+}
+.icon-copy:before {
+	content: "\e62a";
+}
+.icon-drawer:before {
+	content: "\e630";
+}
+.icon-paste:before {
+	content: "\e632";
+}
+.icon-twitter3:before {
+	content: "\e644";
+}
+.icon-google-plus:before {
+	content: "\e645";
+}
+.icon-facebook4:before {
+	content: "\e646";
+}
+.icon-cart:before {
+	content: "\e614";
+}
+.icon-sad:before {
+	content: "\e647";
+}
+.icon-share:before {
+	content: "\e648";
 }
 .icon-arrow-right:before {
 	content: "\e600";
@@ -205,40 +259,4 @@
 }
 .icon-archive:before {
 	content: "\e62b";
-}
-.icon-download:before {
-	content: "\e62d";
-}
-.icon-book:before {
-	content: "\e62e";
-}
-.icon-download2:before {
-	content: "\e628";
-}
-.icon-copy:before {
-	content: "\e62a";
-}
-.icon-drawer:before {
-	content: "\e630";
-}
-.icon-paste:before {
-	content: "\e632";
-}
-.icon-twitter3:before {
-	content: "\e644";
-}
-.icon-google-plus:before {
-	content: "\e645";
-}
-.icon-facebook4:before {
-	content: "\e646";
-}
-.icon-cart:before {
-	content: "\e614";
-}
-.icon-sad:before {
-	content: "\e647";
-}
-.icon-share:before {
-	content: "\e648";
 }

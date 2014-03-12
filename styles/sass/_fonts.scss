@@ -337,6 +337,23 @@
 .icon-sad:before {
 	content: "\e647";
 }
+.icon-android:before {
+	content: "\e649";
+}
+.icon-github:before {
+	content: "\e64a";
+}
+.icon-windows8:before {
+	content: "\e64b";
+}
+.icon-apple:before {
+	content: "\e64c";
+}
+.icon-robot:before {
+	content: "\e64e";
+}
 .icoFont{
-	font-family: 'bqreaders_icofont' !important;
+	&:after,&:before{
+		font-family: 'bqreaders_icofont' !important;
+	}
 }

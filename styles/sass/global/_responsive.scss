@@ -45,7 +45,7 @@ $max-width-sm: "max-width: " + em($screen-sm);
 $min-width-sm: "min-width: " + em($screen-sm + 1);
 $max-width-md: "max-width: " + em($screen-md);
 $min-width-lg: "min-width: " + em($screen-lg);
-
+/* 
 @mixin breakpoint($point) {
     @if $point == "" {        
         @content;
@@ -70,7 +70,7 @@ $min-width-lg: "min-width: " + em($screen-lg);
             @content;
         }
     }
-}
+} */
 
 @if $use-responsive == true {
 
