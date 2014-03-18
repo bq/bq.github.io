@@ -39,13 +39,16 @@ body{
 	@extend .clearfix;
 	width: 100%;
 	max-width: 900px;
-}
-#main_container>header h1{
-	font-weight: 900;
-	font-size: 1.2em;
-	padding: 0.3em 2em;
-	border-bottom: 1px solid darken($color_background,10);
-	margin-bottom: 1em;
+	>header h1{
+		font-weight: 900;
+		font-size: 1.2em;
+		padding: 0.3em 2em;
+		border-bottom: 1px solid darken($color_background,10);
+		margin-bottom: 1em;
+	}
+	.loader{
+		text-align: center;
+	}
 }
 .git_element{
 	box-sizing:border-box;
@@ -68,19 +71,26 @@ body{
 .git_element-link{
 	text-decoration:none;
 }
-#this_proyect{
+.git_element[data-thisrepo="true"]{
 	background: $color_blue_1;
 	margin: 2em 0 0 0;
 	color: $color_background;
 	text-shadow:1px 1px 0 darken($color_blue_1,10);
 	border-bottom-color: darken($color_blue_1,10);
 }
-#this_proyect:hover{
+.git_element[data-thisrepo="true"]:hover{
 	background: saturate(lighten($color_blue_1,5),10);
 }
+
+
+
 @include breakpoint(xs) {
 	#main_container>header h1{
 		padding: 1em 2em 0.5em;
+	}
+	#main_container{
+		width: 80%;
+		margin: 0 auto;
 	}
 	.git_element{
 		font-size: 1.1em;
@@ -97,11 +107,7 @@ body{
 			text-shadow:none;
 		}
 	}
-	#main_container{
-		width: 80%;
-		margin: 0 auto;
-	}
-	#this_proyect{
+	.git_element[data-thisrepo="true"]{
 		border-top: 1px solid darken($color_blue_1,10);
 		border-left: 1px solid darken($color_blue_1,10);
 		border-right: 1px solid darken($color_blue_1,10);
@@ -136,12 +142,10 @@ body{
 		min-height: 5.8em;
 		margin: 0.6em 1.5%; 
 	}
-	#this_proyect{
+	.git_element[data-thisrepo="true"]{
 		clear: both;
 		width:97%;
 		margin: 2em 1.5%;
-	}
-	#this_proyect{
 		min-height: 5em;
 	}
 }

@@ -1427,15 +1427,17 @@ td.hidden-lg {
   color: white;
   height: 5em;
   margin-bottom: 2.5em;
+  padding: 1.5em;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* line 7, ../sass/_header.scss */
+/* line 10, ../sass/_header.scss */
 #main_header h1 {
-  padding: 1.5em;
   font-style: italic;
 }
 
-/* line 11, ../sass/_header.scss */
+/* line 13, ../sass/_header.scss */
 #main_header .icon-logo_bq {
   font-size: 2.5em;
   margin-right: 0.2em;
@@ -1443,21 +1445,150 @@ td.hidden-lg {
   font-weight: normal;
 }
 
+@media (min-width: 30em) {
+  /* line 20, ../sass/_header.scss */
+  #main_header {
+    padding-left: 10%;
+  }
+}
+@media (min-width: 47.9375em) {
+  /* line 25, ../sass/_header.scss */
+  #main_header {
+    padding-left: 15%;
+  }
+}
+@media (min-width: 74.9375em) {
+  /* line 30, ../sass/_header.scss */
+  #main_header {
+    padding-left: 20%;
+  }
+}
 /* line 1, ../sass/_footer.scss */
 #main_footer {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin-top: 2.5em;
   background: black;
   color: white;
-  padding: 1.5em;
+  padding: 2.5em 1.5em 1.5em;
 }
-
-/* line 7, ../sass/_footer.scss */
+/* line 8, ../sass/_footer.scss */
 #main_footer .icon-logo_bq {
   font-size: 2.5em;
-  margin-right: 0.2em;
   font-style: normal;
+  width: 20%;
+  margin-bottom: 1em;
 }
 
+/* line 15, ../sass/_footer.scss */
+.social_links {
+  width: 80%;
+  margin: 2em auto 0;
+}
+/* line 18, ../sass/_footer.scss */
+.social_links li {
+  width: 50%;
+  margin-bottom: 2em;
+  float: left;
+}
+/* line 23, ../sass/_footer.scss */
+.social_links a {
+  text-decoration: none;
+  color: white;
+}
+/* line 26, ../sass/_footer.scss */
+.social_links a:hover .icoFont {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+/* line 30, ../sass/_footer.scss */
+.social_links .social_text {
+  vertical-align: 0.3em;
+  font-style: italic;
+}
+/* line 34, ../sass/_footer.scss */
+.social_links .icoFont {
+  color: white;
+  font-size: 1.3em;
+  padding: 0.4em;
+  border-radius: 3em;
+  width: 1em;
+  height: 1em;
+  display: block;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+}
+/* line 45, ../sass/_footer.scss */
+.social_links .icon-facebook {
+  background: #3b5998;
+}
+/* line 46, ../sass/_footer.scss */
+.social_links .icon-twitter {
+  background: #4099ff;
+}
+/* line 47, ../sass/_footer.scss */
+.social_links .icon-googleplus {
+  background: #d34836;
+}
+/* line 48, ../sass/_footer.scss */
+.social_links .icon-mail {
+  background: #666;
+}
+
+@media (min-width: 30em) {
+  /* line 52, ../sass/_footer.scss */
+  #main_footer {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  /* line 55, ../sass/_footer.scss */
+  #main_footer .icon-logo_bq {
+    float: left;
+  }
+
+  /* line 59, ../sass/_footer.scss */
+  .social_links {
+    margin-top: 0;
+    float: left;
+  }
+}
+@media (min-width: 47.9375em) {
+  /* line 65, ../sass/_footer.scss */
+  #main_footer {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  /* line 70, ../sass/_footer.scss */
+  .social_links .icoFont {
+    display: inline-block;
+  }
+}
+@media (min-width: 61.9375em) {
+  /* line 77, ../sass/_footer.scss */
+  #main_footer .icon-logo_bq {
+    width: 20%;
+  }
+
+  /* line 81, ../sass/_footer.scss */
+  .social_links {
+    width: 80%;
+  }
+}
+@media (min-width: 74.9375em) {
+  /* line 87, ../sass/_footer.scss */
+  #main_footer .icon-logo_bq {
+    width: 15%;
+  }
+
+  /* line 91, ../sass/_footer.scss */
+  .social_links {
+    width: 85%;
+  }
+  /* line 93, ../sass/_footer.scss */
+  .social_links li {
+    width: 25%;
+  }
+}
 /* line 35, ../sass/main.scss */
 body {
   font-family: 'Lato';
@@ -1468,8 +1599,7 @@ body {
   width: 100%;
   max-width: 900px;
 }
-
-/* line 43, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 #main_container > header h1 {
   font-weight: 900;
   font-size: 1.2em;
@@ -1477,8 +1607,12 @@ body {
   border-bottom: 1px solid #d8d8d8;
   margin-bottom: 1em;
 }
+/* line 49, ../sass/main.scss */
+#main_container .loader {
+  text-align: center;
+}
 
-/* line 50, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 .git_element {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1492,19 +1626,19 @@ body {
   overflow: hidden;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 .git_element:hover {
   background-color: #e5e5e5;
   border-bottom-color: #cccccc;
 }
 
-/* line 68, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .git_element-link {
   text-decoration: none;
 }
 
-/* line 71, ../sass/main.scss */
-#this_proyect {
+/* line 74, ../sass/main.scss */
+.git_element[data-thisrepo="true"] {
   background: #428bca;
   margin: 2em 0 0 0;
   color: #f2f2f2;
@@ -1512,18 +1646,24 @@ body {
   border-bottom-color: #3071a9;
 }
 
-/* line 78, ../sass/main.scss */
-#this_proyect:hover {
+/* line 81, ../sass/main.scss */
+.git_element[data-thisrepo="true"]:hover {
   background: #4b98da;
 }
 
 @media (min-width: 30em) {
-  /* line 82, ../sass/main.scss */
+  /* line 88, ../sass/main.scss */
   #main_container > header h1 {
     padding: 1em 2em 0.5em;
   }
 
-  /* line 85, ../sass/main.scss */
+  /* line 91, ../sass/main.scss */
+  #main_container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /* line 95, ../sass/main.scss */
   .git_element {
     font-size: 1.1em;
     padding: 2em 1.5em 1.4em;
@@ -1532,7 +1672,7 @@ body {
     border-right: 1px solid #d8d8d8;
     border-bottom-width: 4px;
   }
-  /* line 92, ../sass/main.scss */
+  /* line 102, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1541,24 +1681,18 @@ body {
     text-shadow: none;
   }
 
-  /* line 100, ../sass/main.scss */
-  #main_container {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  /* line 104, ../sass/main.scss */
-  #this_proyect {
+  /* line 110, ../sass/main.scss */
+  .git_element[data-thisrepo="true"] {
     border-top: 1px solid #3071a9;
     border-left: 1px solid #3071a9;
     border-right: 1px solid #3071a9;
   }
-  /* line 108, ../sass/main.scss */
-  #this_proyect:after {
+  /* line 114, ../sass/main.scss */
+  .git_element[data-thisrepo="true"]:after {
     content: "\e64a";
   }
 
-  /* line 113, ../sass/main.scss */
+  /* line 119, ../sass/main.scss */
   .robotic_proyect:after {
     content: "\e64e";
     bottom: -0.2em;
@@ -1566,20 +1700,20 @@ body {
     color: #5351d2;
   }
 
-  /* line 121, ../sass/main.scss */
+  /* line 127, ../sass/main.scss */
   .android_proyect:after {
     content: "\e649";
     color: #a4c639;
   }
 }
 @media (min-width: 47.9375em) {
-  /* line 129, ../sass/main.scss */
+  /* line 135, ../sass/main.scss */
   #main_container {
     width: 70%;
     margin: 0 auto;
   }
 
-  /* line 133, ../sass/main.scss */
+  /* line 139, ../sass/main.scss */
   .git_element {
     width: 47%;
     float: left;
@@ -1587,30 +1721,26 @@ body {
     margin: 0.6em 1.5%;
   }
 
-  /* line 139, ../sass/main.scss */
-  #this_proyect {
+  /* line 145, ../sass/main.scss */
+  .git_element[data-thisrepo="true"] {
     clear: both;
     width: 97%;
     margin: 2em 1.5%;
-  }
-
-  /* line 144, ../sass/main.scss */
-  #this_proyect {
     min-height: 5em;
   }
 }
 @media (min-width: 61.9375em) {
-  /* line 150, ../sass/main.scss */
+  /* line 154, ../sass/main.scss */
   #main_container > header h1 {
     font-size: 1.3em;
   }
 
-  /* line 153, ../sass/main.scss */
+  /* line 157, ../sass/main.scss */
   .git_element {
     width: 30%;
     min-height: 9em;
   }
-  /* line 156, ../sass/main.scss */
+  /* line 160, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1618,13 +1748,13 @@ body {
     font-size: 4em;
   }
 
-  /* line 164, ../sass/main.scss */
+  /* line 168, ../sass/main.scss */
   .robotic_proyect:after {
     font-size: 5em;
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 170, ../sass/main.scss */
+  /* line 174, ../sass/main.scss */
   .git_element {
     font-size: 1.2em;
     margin-top: 2em;

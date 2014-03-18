@@ -1,11 +1,97 @@
 #main_footer{
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 	margin-top: 2.5em;
 	background: black;
 	color: white;
-	padding: 1.5em;
+	padding: 2.5em 1.5em 1.5em;
+	.icon-logo_bq{
+		font-size: 2.5em;
+		font-style: normal;
+		width: 20%;
+		margin-bottom: 1em;
+	}
 }
-#main_footer .icon-logo_bq{
-	font-size: 2.5em;
-	margin-right: 0.2em;
-	font-style: normal;
+.social_links{
+	width: 80%;
+	margin: 2em auto 0;
+	li{
+		width: 50%;
+		margin-bottom: 2em;
+		float: left;
+	}
+	a{
+		text-decoration: none;
+		color:white;
+		&:hover .icoFont{
+			text-shadow:1px 1px 4px rgba(0,0,0,0.5);
+		}
+	}
+	.social_text{
+		vertical-align: 0.3em;
+		font-style: italic;
+	}
+	.icoFont{
+		color: white;
+		font-size: 1.3em;
+		padding: 0.4em;
+		border-radius: 3em;
+		width: 1em;
+		height: 1em;
+		display: block;
+		margin-right: 0.5em;
+		margin-bottom: 0.5em;
+	} 
+	.icon-facebook{ background: $color_facebook;}
+	.icon-twitter{ background: $color_twitter;}
+	.icon-googleplus{ background: $color_googlePlus;}
+	.icon-mail{ background: #666;}
+}
+
+@include breakpoint(xs) {
+	#main_footer{
+		padding-left: 10%;
+		padding-right: 10%;
+		.icon-logo_bq{
+			float: left;
+		}
+	}
+	.social_links{
+		margin-top: 0;
+		float:left;
+	}
+}
+@include breakpoint(sm) {
+	#main_footer{
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+	.social_links{
+		.icoFont{
+			display: inline-block;
+		}
+	}
+}
+@include breakpoint(md) {
+	#main_footer{
+		.icon-logo_bq{
+			width: 20%;
+		}
+	}
+	.social_links{
+		width: 80%;
+	}
+}
+@include breakpoint(lg) {
+	#main_footer{
+		.icon-logo_bq{
+			width: 15%;
+		}
+	}
+	.social_links{
+		width: 85%;
+		li{
+			width: 25%;
+		}
+	}
 }
