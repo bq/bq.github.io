@@ -55,7 +55,7 @@
  * Reset styles
  * Note: Global reset rules
  */
-/* line 157, ../sass/global/_reset.scss */
+/* line 145, ../sass/global/_reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -169,7 +169,7 @@ input[type="disabled"] {
   -webkit-appearance: button;
 }
 
-/* line 203, ../sass/global/_reset.scss */
+/* line 200, ../sass/global/_reset.scss */
 input,
 button,
 select,
@@ -208,7 +208,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 900;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-BlackItalic.eot");
@@ -216,7 +215,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 900;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-Bold.eot");
@@ -224,7 +222,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 700;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-BoldItalic.eot");
@@ -232,7 +229,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 700;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-Hairline.eot");
@@ -240,7 +236,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 100;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-HairlineItalic.eot");
@@ -248,7 +243,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 100;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-Regular.eot");
@@ -256,7 +250,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-Italic.eot");
@@ -264,7 +257,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 400;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-Light.eot");
@@ -272,7 +264,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 300;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/Lato/Lato-LightItalic.eot");
@@ -280,13 +271,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   font-weight: 300;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'bqreaders_icofont';
   src: url("../fonts/bqreaders_icofont/bqreaders_icofont.eot");
   src: url("../fonts/bqreaders_icofont/bqreaders_icofont.eot?#iefix") format("embedded-opentype"), url("../fonts/bqreaders_icofont/bqreaders_icofont.woff") format("woff"), url("../fonts/bqreaders_icofont/bqreaders_icofont.ttf") format("truetype"), url("../fonts/bqreaders_icofont/bqreaders_icofont.svg#bqreaders_icofont") format("svg");
 }
-
 /* line 100, ../sass/_fonts.scss */
 .icon-shopping_bag:before {
   content: "\e624";
@@ -748,8 +737,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   /* line 39, ../sass/global/_print.scss */
   p, h2, h3 {
     orphans: 3;
@@ -765,7 +753,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * Utils
  * Note: Helper classes
  */
-/* line 137, ../sass/global/_mixins.scss */
+/* line 136, ../sass/global/_mixins.scss */
 .clearfix:before, #main_container:before, .clearfix:after, #main_container:after {
   content: " ";
   /* 1 */
@@ -908,8 +896,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 @-ms-viewport {
   width: device-width;
 }
-
-/* line 23, ../sass/global/_responsive.scss */
+/* line 20, ../sass/global/_responsive.scss */
 .visible-xs,
 tr.visible-xs,
 th.visible-xs,
@@ -928,7 +915,7 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-xs,
   td.visible-xs {
     display: table-cell !important;
@@ -945,7 +932,7 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-xs.visible-sm,
   td.visible-xs.visible-sm {
     display: table-cell !important;
@@ -962,7 +949,7 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-xs.visible-md,
   td.visible-xs.visible-md {
     display: table-cell !important;
@@ -979,13 +966,13 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-xs.visible-lg,
   td.visible-xs.visible-lg {
     display: table-cell !important;
   }
 }
-/* line 23, ../sass/global/_responsive.scss */
+/* line 20, ../sass/global/_responsive.scss */
 .visible-sm,
 tr.visible-sm,
 th.visible-sm,
@@ -1004,7 +991,7 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-sm.visible-xs,
   td.visible-sm.visible-xs {
     display: table-cell !important;
@@ -1021,7 +1008,7 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-sm,
   td.visible-sm {
     display: table-cell !important;
@@ -1038,7 +1025,7 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-sm.visible-md,
   td.visible-sm.visible-md {
     display: table-cell !important;
@@ -1055,13 +1042,13 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-sm.visible-lg,
   td.visible-sm.visible-lg {
     display: table-cell !important;
   }
 }
-/* line 23, ../sass/global/_responsive.scss */
+/* line 20, ../sass/global/_responsive.scss */
 .visible-md,
 tr.visible-md,
 th.visible-md,
@@ -1080,7 +1067,7 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-md.visible-xs,
   td.visible-md.visible-xs {
     display: table-cell !important;
@@ -1097,7 +1084,7 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-md.visible-sm,
   td.visible-md.visible-sm {
     display: table-cell !important;
@@ -1114,7 +1101,7 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-md,
   td.visible-md {
     display: table-cell !important;
@@ -1131,13 +1118,13 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-md.visible-lg,
   td.visible-md.visible-lg {
     display: table-cell !important;
   }
 }
-/* line 23, ../sass/global/_responsive.scss */
+/* line 20, ../sass/global/_responsive.scss */
 .visible-lg,
 tr.visible-lg,
 th.visible-lg,
@@ -1156,7 +1143,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-lg.visible-xs,
   td.visible-lg.visible-xs {
     display: table-cell !important;
@@ -1173,7 +1160,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-lg.visible-sm,
   td.visible-lg.visible-sm {
     display: table-cell !important;
@@ -1190,7 +1177,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-lg.visible-md,
   td.visible-lg.visible-md {
     display: table-cell !important;
@@ -1207,7 +1194,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 13, ../sass/global/_responsive.scss */
+  /* line 12, ../sass/global/_responsive.scss */
   th.visible-lg,
   td.visible-lg {
     display: table-cell !important;
@@ -1223,14 +1210,14 @@ tr.hidden-xs {
   display: table-row !important;
 }
 
-/* line 13, ../sass/global/_responsive.scss */
+/* line 12, ../sass/global/_responsive.scss */
 th.hidden-xs,
 td.hidden-xs {
   display: table-cell !important;
 }
 
 @media (max-width: 30em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-xs,
   tr.hidden-xs,
   th.hidden-xs,
@@ -1239,7 +1226,7 @@ td.hidden-xs {
   }
 }
 @media (min-width: 30.0625em) and (max-width: 47.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-xs.hidden-sm,
   tr.hidden-xs.hidden-sm,
   th.hidden-xs.hidden-sm,
@@ -1248,7 +1235,7 @@ td.hidden-xs {
   }
 }
 @media (min-width: 48em) and (max-width: 61.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-xs.hidden-md,
   tr.hidden-xs.hidden-md,
   th.hidden-xs.hidden-md,
@@ -1257,7 +1244,7 @@ td.hidden-xs {
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-xs.hidden-lg,
   tr.hidden-xs.hidden-lg,
   th.hidden-xs.hidden-lg,
@@ -1275,14 +1262,14 @@ tr.hidden-sm {
   display: table-row !important;
 }
 
-/* line 13, ../sass/global/_responsive.scss */
+/* line 12, ../sass/global/_responsive.scss */
 th.hidden-sm,
 td.hidden-sm {
   display: table-cell !important;
 }
 
 @media (max-width: 30em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-sm.hidden-xs,
   tr.hidden-sm.hidden-xs,
   th.hidden-sm.hidden-xs,
@@ -1291,7 +1278,7 @@ td.hidden-sm {
   }
 }
 @media (min-width: 30.0625em) and (max-width: 47.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-sm,
   tr.hidden-sm,
   th.hidden-sm,
@@ -1300,7 +1287,7 @@ td.hidden-sm {
   }
 }
 @media (min-width: 48em) and (max-width: 61.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-sm.hidden-md,
   tr.hidden-sm.hidden-md,
   th.hidden-sm.hidden-md,
@@ -1309,7 +1296,7 @@ td.hidden-sm {
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-sm.hidden-lg,
   tr.hidden-sm.hidden-lg,
   th.hidden-sm.hidden-lg,
@@ -1327,14 +1314,14 @@ tr.hidden-md {
   display: table-row !important;
 }
 
-/* line 13, ../sass/global/_responsive.scss */
+/* line 12, ../sass/global/_responsive.scss */
 th.hidden-md,
 td.hidden-md {
   display: table-cell !important;
 }
 
 @media (max-width: 30em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-md.hidden-xs,
   tr.hidden-md.hidden-xs,
   th.hidden-md.hidden-xs,
@@ -1343,7 +1330,7 @@ td.hidden-md {
   }
 }
 @media (min-width: 30.0625em) and (max-width: 47.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-md.hidden-sm,
   tr.hidden-md.hidden-sm,
   th.hidden-md.hidden-sm,
@@ -1352,7 +1339,7 @@ td.hidden-md {
   }
 }
 @media (min-width: 48em) and (max-width: 61.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-md,
   tr.hidden-md,
   th.hidden-md,
@@ -1361,7 +1348,7 @@ td.hidden-md {
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-md.hidden-lg,
   tr.hidden-md.hidden-lg,
   th.hidden-md.hidden-lg,
@@ -1379,14 +1366,14 @@ tr.hidden-lg {
   display: table-row !important;
 }
 
-/* line 13, ../sass/global/_responsive.scss */
+/* line 12, ../sass/global/_responsive.scss */
 th.hidden-lg,
 td.hidden-lg {
   display: table-cell !important;
 }
 
 @media (max-width: 30em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-lg.hidden-xs,
   tr.hidden-lg.hidden-xs,
   th.hidden-lg.hidden-xs,
@@ -1395,7 +1382,7 @@ td.hidden-lg {
   }
 }
 @media (min-width: 30.0625em) and (max-width: 47.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-lg.hidden-sm,
   tr.hidden-lg.hidden-sm,
   th.hidden-lg.hidden-sm,
@@ -1404,7 +1391,7 @@ td.hidden-lg {
   }
 }
 @media (min-width: 48em) and (max-width: 61.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-lg.hidden-md,
   tr.hidden-lg.hidden-md,
   th.hidden-lg.hidden-md,
@@ -1413,7 +1400,7 @@ td.hidden-lg {
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 23, ../sass/global/_responsive.scss */
+  /* line 20, ../sass/global/_responsive.scss */
   .hidden-lg,
   tr.hidden-lg,
   th.hidden-lg,
@@ -1689,31 +1676,32 @@ body {
   }
   /* line 114, ../sass/main.scss */
   .git_element[data-thisrepo="true"]:after {
-    content: "\e64a";
+    content: "\e623";
+    right: 0.1em;
   }
 
-  /* line 119, ../sass/main.scss */
-  .robotic_proyect:after {
+  /* line 120, ../sass/main.scss */
+  .robotic_project:after {
     content: "\e64e";
     bottom: -0.2em;
     font-size: 5em;
     color: #5351d2;
   }
 
-  /* line 127, ../sass/main.scss */
-  .android_proyect:after {
+  /* line 128, ../sass/main.scss */
+  .android_project:after {
     content: "\e649";
     color: #a4c639;
   }
 }
 @media (min-width: 47.9375em) {
-  /* line 135, ../sass/main.scss */
+  /* line 136, ../sass/main.scss */
   #main_container {
     width: 70%;
     margin: 0 auto;
   }
 
-  /* line 139, ../sass/main.scss */
+  /* line 140, ../sass/main.scss */
   .git_element {
     width: 47%;
     float: left;
@@ -1721,7 +1709,7 @@ body {
     margin: 0.6em 1.5%;
   }
 
-  /* line 145, ../sass/main.scss */
+  /* line 146, ../sass/main.scss */
   .git_element[data-thisrepo="true"] {
     clear: both;
     width: 97%;
@@ -1730,17 +1718,17 @@ body {
   }
 }
 @media (min-width: 61.9375em) {
-  /* line 154, ../sass/main.scss */
+  /* line 155, ../sass/main.scss */
   #main_container > header h1 {
     font-size: 1.3em;
   }
 
-  /* line 157, ../sass/main.scss */
+  /* line 158, ../sass/main.scss */
   .git_element {
     width: 30%;
     min-height: 9em;
   }
-  /* line 160, ../sass/main.scss */
+  /* line 161, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1748,13 +1736,13 @@ body {
     font-size: 4em;
   }
 
-  /* line 168, ../sass/main.scss */
-  .robotic_proyect:after {
+  /* line 169, ../sass/main.scss */
+  .robotic_project:after {
     font-size: 5em;
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 174, ../sass/main.scss */
+  /* line 175, ../sass/main.scss */
   .git_element {
     font-size: 1.2em;
     margin-top: 2em;

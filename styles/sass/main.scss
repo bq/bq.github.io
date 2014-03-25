@@ -112,10 +112,11 @@ body{
 		border-left: 1px solid darken($color_blue_1,10);
 		border-right: 1px solid darken($color_blue_1,10);
 		&:after{
-			content:"\e64a";
+			content:"\e623";
+			right: 0.1em;
 		}
 	}
-	.robotic_proyect{
+	.robotic_project{
 		&:after{
 			content:"\e64e";
 			bottom: -0.2em;
@@ -123,7 +124,7 @@ body{
 			color:$color_robotica;
 		}
 	}
-	.android_proyect{
+	.android_project{
 		&:after{
 			content:"\e649";
 			color: $color_android;
@@ -164,7 +165,7 @@ body{
 			font-size: 4em;
 		}
 	}
-	.robotic_proyect{
+	.robotic_project{
 		&:after{
 			font-size: 5em;	
 		}
