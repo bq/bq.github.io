@@ -1,16 +1,13 @@
 //se pueden pasar parámetros a la url para que pagine. No necesario ahora
-function addRepos($main_container){
+function addRepos($repository_list){
 	var repoType='';
 	var uri="https://api.github.com/orgs/bq/repos";
 	$.getJSON(uri,function(json){
 		$.each(json,function(index,element){
-			if (element.name!='bq.github.io') {
-				buildRepo(element,$main_container);
-			}else{
-				thisRepo=element;
+			if (typeof unwanted_repositories[element.name] == "undefined") {
+				buildRepo(element,$repository_list);
 			};
 		})
-		buildThisRepo(thisRepo,$main_container);
 	}).success(
 		function(){
 			$('.loader').hide()
@@ -18,35 +15,23 @@ function addRepos($main_container){
 
 }
 
-function buildRepo(item,$main_container){
+function buildRepo(item,$repository_list){
 	console.log(item)
-	var $main_container=$('#main_container');
+	var $repository_list=$('#repository_list');
 	var $a 			=	$('<a class="git_element-link" href="'+item.html_url+'">');
-	/*$.each(repositories_classes,function(repoName,repoClass){
-		console.log(repoName,repoClass)
-		if (repoName==item.name) {repoType=repoClass;}else{repoType="";}
-	})*/
 	repoType=repositories_classes[item.name];
-	console.log(repoType)
 	var $article 	=	$('<article id="'+item.name+'" class="git_element icoFont '+repoType+'">')
 	var $header 	=	$('<header>').append($('<h1>').text(item.name));
-	$main_container.append($a.append($article.append($header)));
-}
-function buildThisRepo(item,$main_container){
-	console.log(item)
-	var $a 			=	$('<a class="git_element-link" href="'+item.html_url+'">');
-	var $article 	=	$('<article id="'+item.name+'" class="git_element icoFont" data-thisRepo="true">')
-	var $header 	=	$('<header>').append($('<h1>').text(item.name));
-	$main_container.append($a.append($article.append($header)));
+	$repository_list.append($a.append($article.append($header)));
 }
 
 $(document).ready(function(){
-	var $main_container=$('#main_container');
+	var $repository_list=$('#repository_list');
 	url='config.json';
 	$.getJSON(url,function(json){
-		repositories_classes=json;
 		console.log(json)
+		repositories_classes=json.repositories_clases;
+		unwanted_repositories=json.unwanted_repositories;
 	})
-	addRepos($main_container)
-
+	addRepos($repository_list)
 })

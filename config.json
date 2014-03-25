@@ -1,8 +1,18 @@
 {
-	"droid2ino":"robotic_project",
-	"robopad":"robotic_project",
-	"cervantes":"android_project",
-	"android-bootanimation-checker":"android_project",
-	"chat-kata":"android_project",
-	"chat-kata-extended":"android_project"
+	"demo_clases":{
+		"robotic_project":"robotic_project",
+		"android_project":"android_project",
+		"smartphone_project":"smartphone_project",
+		"tablet_project":"tablet_project",
+		"ereader_project":"ereader_project"},
+	"repositories_clases": {
+		"droid2ino":"robotic_project",
+		"robopad":"robotic_project",
+		"cervantes":"android_project",
+		"android-bootanimation-checker":"android_project"},
+	"unwanted_repositories":{
+		"chat-kata":"false",
+		"chat-kata-extended":"false",
+		"bq.github.io":"false"
+	}
 }

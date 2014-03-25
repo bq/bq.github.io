@@ -124,6 +124,33 @@ body{
 			color:$color_robotica;
 		}
 	}
+	.smartphone_project{
+		&:after{
+			content:"\e65b";
+			bottom: 0em;
+			right: -0.18em;
+			font-size: 3em;
+			color:$color_smartphone;
+		}
+	}
+	.tablet_project{
+		&:after{
+			content:"\e65d";
+			bottom: 0em;
+			right: -0.12em;
+			font-size: 3.5em;
+			color:$color_tablet;
+		}
+	}
+	.ereader_project{
+		&:after{
+			content:"\e65c";
+			bottom: 0em;
+			right: -0.18em;
+			font-size: 3em;
+			color:$color_ereader;
+		}
+	}
 	.android_project{
 		&:after{
 			content:"\e649";
@@ -168,6 +195,20 @@ body{
 	.robotic_project{
 		&:after{
 			font-size: 5em;	
+		}
+	}
+
+	.smartphone_project,
+	.ereader_project{
+		&:after{
+			bottom: 0;
+			right: -0.18em;
+		}		
+	}
+	.tablet_project{
+		&:after{
+			bottom: 0;
+			right: -0.12em;
 		}
 	}
 }
