@@ -16,8 +16,7 @@ function addRepos($repository_list){
 }
 
 function buildRepo(item,$repository_list){
-	console.log(item)
-	var $repository_list=$('#repository_list');
+	//console.log(item)
 	var $a 			=	$('<a class="git_element-link" href="'+item.html_url+'">');
 	repoType=repositories_classes[item.name];
 	var $article 	=	$('<article id="'+item.name+'" class="git_element icoFont '+repoType+'">')
@@ -29,7 +28,6 @@ $(document).ready(function(){
 	var $repository_list=$('#repository_list');
 	url='config.json';
 	$.getJSON(url,function(json){
-		console.log(json)
 		repositories_classes=json.repositories_clases;
 		unwanted_repositories=json.unwanted_repositories;
 	})

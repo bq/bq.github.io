@@ -10,7 +10,8 @@
 		"robopad":"robotic_project",
 		"cervantes":"ereader_project",
 		"android-bootanimation-checker":"android_project",
-		"aquaris-5.7":"smartphone_project"},
+		"aquaris-5.7":"smartphone_project",
+		"aquaris-5":"smartphone_project"},
 	"unwanted_repositories":{
 		"chat-kata":"false",
 		"chat-kata-extended":"false",
