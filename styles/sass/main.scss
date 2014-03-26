@@ -35,7 +35,11 @@
 body{
 	font-family: 'Lato';
 }
+html,body{
+	height: 100%;
+}
 #main_container{
+	min-height: 69.3%;
 	@extend .clearfix;
 	width: 100%;
 	max-width: 900px;
@@ -71,15 +75,22 @@ body{
 .git_element-link{
 	text-decoration:none;
 }
-.git_element[data-thisrepo="true"]{
-	background: $color_blue_1;
-	margin: 2em 0 0 0;
-	color: $color_background;
-	text-shadow:1px 1px 0 darken($color_blue_1,10);
-	border-bottom-color: darken($color_blue_1,10);
-}
-.git_element[data-thisrepo="true"]:hover{
-	background: saturate(lighten($color_blue_1,5),10);
+#view_on_github{
+	clear: both;
+	float: right;
+	color: $color_blue_1;
+	margin-top: 3em;
+	h1{
+		transition:padding 0.3s ease-in; 
+		padding: 0 1em 0.2em;
+		font-weight: 300;
+		border-bottom: 1px solid darken($color_blue_1,5);
+	}
+	&:hover{
+		h1{
+			padding-left: 5em;
+		}
+	}
 }
 
 
@@ -105,15 +116,6 @@ body{
 			bottom: -0.15em;
 			font-size: 3em;
 			text-shadow:none;
-		}
-	}
-	.git_element[data-thisrepo="true"]{
-		border-top: 1px solid darken($color_blue_1,10);
-		border-left: 1px solid darken($color_blue_1,10);
-		border-right: 1px solid darken($color_blue_1,10);
-		&:after{
-			content:"\e623";
-			right: 0.1em;
 		}
 	}
 	.robotic_project{
@@ -170,12 +172,6 @@ body{
 		min-height: 5.8em;
 		margin: 0.6em 1.5%; 
 	}
-	.git_element[data-thisrepo="true"]{
-		clear: both;
-		width:97%;
-		margin: 2em 1.5%;
-		min-height: 5em;
-	}
 }
 
 @include breakpoint(md) {
@@ -210,6 +206,9 @@ body{
 			bottom: 0;
 			right: -0.12em;
 		}
+	}
+	#view_on_github{
+		margin-top: 6em;
 	}
 }
 @include breakpoint(lg) {

@@ -1459,40 +1459,35 @@ td.hidden-lg {
   color: white;
   padding: 2.5em 1.5em 1.5em;
 }
-/* line 8, ../sass/_footer.scss */
-#main_footer .icon-logo_bq {
-  font-size: 2.5em;
-  font-style: normal;
-  width: 20%;
-  margin-bottom: 1em;
-}
 
-/* line 15, ../sass/_footer.scss */
+/* line 9, ../sass/_footer.scss */
 .social_links {
   width: 80%;
   margin: 2em auto 0;
 }
-/* line 18, ../sass/_footer.scss */
+/* line 12, ../sass/_footer.scss */
 .social_links li {
   width: 50%;
   margin-bottom: 2em;
   float: left;
+  text-align: center;
 }
-/* line 23, ../sass/_footer.scss */
+/* line 18, ../sass/_footer.scss */
 .social_links a {
   text-decoration: none;
   color: white;
 }
-/* line 26, ../sass/_footer.scss */
+/* line 21, ../sass/_footer.scss */
 .social_links a:hover .icoFont {
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
-/* line 30, ../sass/_footer.scss */
+/* line 25, ../sass/_footer.scss */
 .social_links .social_text {
   vertical-align: 0.3em;
   font-style: italic;
+  display: inline-block;
 }
-/* line 34, ../sass/_footer.scss */
+/* line 30, ../sass/_footer.scss */
 .social_links .icoFont {
   color: white;
   font-size: 1.3em;
@@ -1501,79 +1496,72 @@ td.hidden-lg {
   width: 1em;
   height: 1em;
   display: block;
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0 auto 0.5em;
 }
-/* line 45, ../sass/_footer.scss */
+/* line 40, ../sass/_footer.scss */
+.social_links .icon-logo_bq, .social_links .icon-mail {
+  background: #999;
+}
+/* line 41, ../sass/_footer.scss */
 .social_links .icon-facebook {
   background: #3b5998;
 }
-/* line 46, ../sass/_footer.scss */
+/* line 42, ../sass/_footer.scss */
 .social_links .icon-twitter {
   background: #4099ff;
 }
-/* line 47, ../sass/_footer.scss */
+/* line 43, ../sass/_footer.scss */
 .social_links .icon-googleplus {
   background: #d34836;
 }
-/* line 48, ../sass/_footer.scss */
-.social_links .icon-mail {
-  background: #666;
-}
 
 @media (min-width: 30em) {
-  /* line 52, ../sass/_footer.scss */
+  /* line 48, ../sass/_footer.scss */
   #main_footer {
     padding-left: 10%;
     padding-right: 10%;
   }
-  /* line 55, ../sass/_footer.scss */
-  #main_footer .icon-logo_bq {
-    float: left;
-  }
 
-  /* line 59, ../sass/_footer.scss */
+  /* line 52, ../sass/_footer.scss */
   .social_links {
     margin-top: 0;
-    float: left;
+    width: 100%;
+  }
+  /* line 55, ../sass/_footer.scss */
+  .social_links li {
+    width: 33%;
   }
 }
 @media (min-width: 47.9375em) {
-  /* line 65, ../sass/_footer.scss */
+  /* line 61, ../sass/_footer.scss */
   #main_footer {
     padding-left: 15%;
     padding-right: 15%;
   }
 
-  /* line 70, ../sass/_footer.scss */
+  /* line 66, ../sass/_footer.scss */
   .social_links .icoFont {
     display: inline-block;
+    margin: 0 0.5em 0 0;
   }
-}
-@media (min-width: 61.9375em) {
-  /* line 77, ../sass/_footer.scss */
-  #main_footer .icon-logo_bq {
-    width: 20%;
+  /* line 70, ../sass/_footer.scss */
+  .social_links li {
+    text-align: left;
   }
-
-  /* line 81, ../sass/_footer.scss */
-  .social_links {
-    width: 80%;
+  /* line 73, ../sass/_footer.scss */
+  .social_links li:last-child {
+    width: 50%;
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 87, ../sass/_footer.scss */
-  #main_footer .icon-logo_bq {
-    width: 15%;
-  }
-
-  /* line 91, ../sass/_footer.scss */
+  /* line 85, ../sass/_footer.scss */
   .social_links {
-    width: 85%;
+    width: 110%;
+    margin-left: -5%;
   }
-  /* line 93, ../sass/_footer.scss */
-  .social_links li {
-    width: 25%;
+  /* line 88, ../sass/_footer.scss */
+  .social_links li, .social_links li:last-child {
+    width: 20%;
   }
 }
 /* line 35, ../sass/main.scss */
@@ -1582,11 +1570,17 @@ body {
 }
 
 /* line 38, ../sass/main.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 41, ../sass/main.scss */
 #main_container {
+  min-height: 69.3%;
   width: 100%;
   max-width: 900px;
 }
-/* line 42, ../sass/main.scss */
+/* line 46, ../sass/main.scss */
 #main_container > header h1 {
   font-weight: 900;
   font-size: 1.2em;
@@ -1594,12 +1588,12 @@ body {
   border-bottom: 1px solid #d8d8d8;
   margin-bottom: 1em;
 }
-/* line 49, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 #main_container .loader {
   text-align: center;
 }
 
-/* line 53, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 .git_element {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1613,44 +1607,49 @@ body {
   overflow: hidden;
 }
 
-/* line 65, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 .git_element:hover {
   background-color: #e5e5e5;
   border-bottom-color: #cccccc;
 }
 
-/* line 71, ../sass/main.scss */
+/* line 75, ../sass/main.scss */
 .git_element-link {
   text-decoration: none;
 }
 
-/* line 74, ../sass/main.scss */
-.git_element[data-thisrepo="true"] {
-  background: #428bca;
-  margin: 2em 0 0 0;
-  color: #f2f2f2;
-  text-shadow: 1px 1px 0 #3071a9;
-  border-bottom-color: #3071a9;
+/* line 78, ../sass/main.scss */
+#view_on_github {
+  clear: both;
+  float: right;
+  color: #428bca;
+  margin-top: 3em;
 }
-
-/* line 81, ../sass/main.scss */
-.git_element[data-thisrepo="true"]:hover {
-  background: #4b98da;
+/* line 83, ../sass/main.scss */
+#view_on_github h1 {
+  transition: padding 0.3s ease-in;
+  padding: 0 1em 0.2em;
+  font-weight: 300;
+  border-bottom: 1px solid #357ebd;
+}
+/* line 90, ../sass/main.scss */
+#view_on_github:hover h1 {
+  padding-left: 5em;
 }
 
 @media (min-width: 30em) {
-  /* line 88, ../sass/main.scss */
+  /* line 99, ../sass/main.scss */
   #main_container > header h1 {
     padding: 1em 2em 0.5em;
   }
 
-  /* line 91, ../sass/main.scss */
+  /* line 102, ../sass/main.scss */
   #main_container {
     width: 80%;
     margin: 0 auto;
   }
 
-  /* line 95, ../sass/main.scss */
+  /* line 106, ../sass/main.scss */
   .git_element {
     font-size: 1.1em;
     padding: 2em 1.5em 1.4em;
@@ -1659,7 +1658,7 @@ body {
     border-right: 1px solid #d8d8d8;
     border-bottom-width: 4px;
   }
-  /* line 102, ../sass/main.scss */
+  /* line 113, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1668,19 +1667,7 @@ body {
     text-shadow: none;
   }
 
-  /* line 110, ../sass/main.scss */
-  .git_element[data-thisrepo="true"] {
-    border-top: 1px solid #3071a9;
-    border-left: 1px solid #3071a9;
-    border-right: 1px solid #3071a9;
-  }
-  /* line 114, ../sass/main.scss */
-  .git_element[data-thisrepo="true"]:after {
-    content: "\e623";
-    right: 0.1em;
-  }
-
-  /* line 120, ../sass/main.scss */
+  /* line 122, ../sass/main.scss */
   .robotic_project:after {
     content: "\e64e";
     bottom: -0.2em;
@@ -1688,7 +1675,7 @@ body {
     color: #268474;
   }
 
-  /* line 128, ../sass/main.scss */
+  /* line 130, ../sass/main.scss */
   .smartphone_project:after {
     content: "\e65b";
     bottom: 0em;
@@ -1697,7 +1684,7 @@ body {
     color: #f18e26;
   }
 
-  /* line 137, ../sass/main.scss */
+  /* line 139, ../sass/main.scss */
   .tablet_project:after {
     content: "\e65d";
     bottom: 0em;
@@ -1706,7 +1693,7 @@ body {
     color: #fc4750;
   }
 
-  /* line 146, ../sass/main.scss */
+  /* line 148, ../sass/main.scss */
   .ereader_project:after {
     content: "\e65c";
     bottom: 0em;
@@ -1715,47 +1702,39 @@ body {
     color: #992c7e;
   }
 
-  /* line 155, ../sass/main.scss */
+  /* line 157, ../sass/main.scss */
   .android_project:after {
     content: "\e649";
     color: #a4c639;
   }
 }
 @media (min-width: 47.9375em) {
-  /* line 163, ../sass/main.scss */
+  /* line 165, ../sass/main.scss */
   #main_container {
     width: 70%;
     margin: 0 auto;
   }
 
-  /* line 167, ../sass/main.scss */
+  /* line 169, ../sass/main.scss */
   .git_element {
     width: 47%;
     float: left;
     min-height: 5.8em;
     margin: 0.6em 1.5%;
   }
-
-  /* line 173, ../sass/main.scss */
-  .git_element[data-thisrepo="true"] {
-    clear: both;
-    width: 97%;
-    margin: 2em 1.5%;
-    min-height: 5em;
-  }
 }
 @media (min-width: 61.9375em) {
-  /* line 182, ../sass/main.scss */
+  /* line 178, ../sass/main.scss */
   #main_container > header h1 {
     font-size: 1.3em;
   }
 
-  /* line 185, ../sass/main.scss */
+  /* line 181, ../sass/main.scss */
   .git_element {
     width: 30%;
     min-height: 9em;
   }
-  /* line 188, ../sass/main.scss */
+  /* line 184, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1763,26 +1742,31 @@ body {
     font-size: 4em;
   }
 
-  /* line 196, ../sass/main.scss */
+  /* line 192, ../sass/main.scss */
   .robotic_project:after {
     font-size: 5em;
   }
 
-  /* line 203, ../sass/main.scss */
+  /* line 199, ../sass/main.scss */
   .smartphone_project:after,
   .ereader_project:after {
     bottom: 0;
     right: -0.18em;
   }
 
-  /* line 209, ../sass/main.scss */
+  /* line 205, ../sass/main.scss */
   .tablet_project:after {
     bottom: 0;
     right: -0.12em;
   }
+
+  /* line 210, ../sass/main.scss */
+  #view_on_github {
+    margin-top: 6em;
+  }
 }
 @media (min-width: 74.9375em) {
-  /* line 216, ../sass/main.scss */
+  /* line 215, ../sass/main.scss */
   .git_element {
     font-size: 1.2em;
     margin-top: 2em;

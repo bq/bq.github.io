@@ -5,12 +5,6 @@
 	background: black;
 	color: white;
 	padding: 2.5em 1.5em 1.5em;
-	.icon-logo_bq{
-		font-size: 2.5em;
-		font-style: normal;
-		width: 20%;
-		margin-bottom: 1em;
-	}
 }
 .social_links{
 	width: 80%;
@@ -19,6 +13,7 @@
 		width: 50%;
 		margin-bottom: 2em;
 		float: left;
+		text-align: center;
 	}
 	a{
 		text-decoration: none;
@@ -30,6 +25,7 @@
 	.social_text{
 		vertical-align: 0.3em;
 		font-style: italic;
+		display: inline-block;
 	}
 	.icoFont{
 		color: white;
@@ -39,26 +35,26 @@
 		width: 1em;
 		height: 1em;
 		display: block;
-		margin-right: 0.5em;
-		margin-bottom: 0.5em;
+		margin: 0 auto 0.5em;
 	} 
+	.icon-logo_bq,.icon-mail{ background: #999;}
 	.icon-facebook{ background: $color_facebook;}
 	.icon-twitter{ background: $color_twitter;}
 	.icon-googleplus{ background: $color_googlePlus;}
-	.icon-mail{ background: #666;}
+	
 }
 
 @include breakpoint(xs) {
 	#main_footer{
 		padding-left: 10%;
 		padding-right: 10%;
-		.icon-logo_bq{
-			float: left;
-		}
 	}
 	.social_links{
 		margin-top: 0;
-		float:left;
+		width: 100%;
+		li{
+			width: 33%;
+		}
 	}
 }
 @include breakpoint(sm) {
@@ -69,29 +65,28 @@
 	.social_links{
 		.icoFont{
 			display: inline-block;
+			margin: 0 0.5em 0 0;
+		}
+		li{
+			text-align: left;
+		}
+		li:last-child{
+			width: 50%;
 		}
 	}
 }
 @include breakpoint(md) {
-	#main_footer{
-		.icon-logo_bq{
-			width: 20%;
-		}
-	}
-	.social_links{
-		width: 80%;
-	}
+
 }
 @include breakpoint(lg) {
 	#main_footer{
-		.icon-logo_bq{
-			width: 15%;
-		}
+
 	}
 	.social_links{
-		width: 85%;
-		li{
-			width: 25%;
+		width: 110%;
+		margin-left: -5%;
+		li,li:last-child{
+			width: 20%;
 		}
 	}
 }
