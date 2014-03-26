@@ -61,10 +61,17 @@ html,body{
 	padding: 1em;
 	margin: 0.5em 0;
 	color: $text-color;
-	text-shadow:1px 1px 0 lighten($color_background,10);
+	text-shadow:1px 1px 0 darken($color_background,10);
 	border-bottom: 2px solid darken($color_background,10);
 	position: relative;
 	overflow: hidden;
+	.description{
+		font-size: 0.8em;
+		text-shadow: none;
+		padding: 1em 0 0 2%;
+		max-width: 98%;
+		text-shadow:none;
+	}
 }
 .git_element:hover{
 	background-color: darken($color_background,5);
@@ -116,6 +123,9 @@ html,body{
 			bottom: -0.15em;
 			font-size: 3em;
 			text-shadow:none;
+		}
+		.description{
+			padding-right: 8%;
 		}
 	}
 	.robotic_project{
@@ -169,8 +179,11 @@ html,body{
 	.git_element{
 		width: 47%;
 		float: left;
-		min-height: 5.8em;
+		min-height: 8.9em;
 		margin: 0.6em 1.5%; 
+		.description{
+			padding-right: 8%;
+		}
 	}
 }
 
@@ -180,7 +193,13 @@ html,body{
 	}
 	.git_element{
 		width: 30%;
-		min-height: 9em;
+		min-height: 10.8em;
+		/* &.has_description{
+			width: 60%;
+		} */
+		.description{
+			padding-right: 20%;
+		}
 		&:after{
 			position: absolute;
 			right: -0.15em;
@@ -215,5 +234,8 @@ html,body{
 	.git_element{
 		font-size: 1.2em;
 		margin-top: 2em;
+		.description{
+			font-size: 0.8em;
+		}
 	}
 }
