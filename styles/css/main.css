@@ -1601,55 +1601,66 @@ html, body {
   padding: 1em;
   margin: 0.5em 0;
   color: #333333;
-  text-shadow: 1px 1px 0 white;
+  text-shadow: 1px 1px 0 #d8d8d8;
   border-bottom: 2px solid #d8d8d8;
   position: relative;
   overflow: hidden;
 }
+/* line 68, ../sass/main.scss */
+.git_element .description {
+  font-size: 0.8em;
+  text-shadow: none;
+  padding: 1em 0 0 2%;
+  max-width: 98%;
+  text-shadow: none;
+}
 
-/* line 69, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .git_element:hover {
   background-color: #e5e5e5;
   border-bottom-color: #cccccc;
 }
 
-/* line 75, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .git_element-link {
   text-decoration: none;
 }
 
-/* line 78, ../sass/main.scss */
+/* line 85, ../sass/main.scss */
 #view_on_github {
   clear: both;
   float: right;
   color: #428bca;
   margin-top: 3em;
-}
-/* line 83, ../sass/main.scss */
-#view_on_github h1 {
-  transition: padding 0.3s ease-in;
-  padding: 0 1em 0.2em;
-  font-weight: 300;
+  width: auto;
+  padding-left: 0;
+  transition: padding-left 0.3s ease-in;
   border-bottom: 1px solid #357ebd;
 }
-/* line 90, ../sass/main.scss */
-#view_on_github:hover h1 {
-  padding-left: 5em;
+/* line 94, ../sass/main.scss */
+#view_on_github h1 {
+  font-weight: 300;
+  padding: 0.1em 1.5em;
+  float: right;
+}
+/* line 99, ../sass/main.scss */
+#view_on_github:hover {
+  padding-left: 8em;
 }
 
 @media (min-width: 30em) {
-  /* line 99, ../sass/main.scss */
+  /* line 107, ../sass/main.scss */
   #main_container > header h1 {
     padding: 1em 2em 0.5em;
   }
 
-  /* line 102, ../sass/main.scss */
+  /* line 110, ../sass/main.scss */
   #main_container {
     width: 80%;
     margin: 0 auto;
   }
 
-  /* line 106, ../sass/main.scss */
+  /* line 114, ../sass/main.scss */
   .git_element {
     font-size: 1.1em;
     padding: 2em 1.5em 1.4em;
@@ -1658,7 +1669,7 @@ html, body {
     border-right: 1px solid #d8d8d8;
     border-bottom-width: 4px;
   }
-  /* line 113, ../sass/main.scss */
+  /* line 121, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1666,8 +1677,12 @@ html, body {
     font-size: 3em;
     text-shadow: none;
   }
+  /* line 128, ../sass/main.scss */
+  .git_element .description {
+    padding-right: 8%;
+  }
 
-  /* line 122, ../sass/main.scss */
+  /* line 133, ../sass/main.scss */
   .robotic_project:after {
     content: "\e64e";
     bottom: -0.2em;
@@ -1675,7 +1690,7 @@ html, body {
     color: #268474;
   }
 
-  /* line 130, ../sass/main.scss */
+  /* line 141, ../sass/main.scss */
   .smartphone_project:after {
     content: "\e65b";
     bottom: 0em;
@@ -1684,7 +1699,7 @@ html, body {
     color: #f18e26;
   }
 
-  /* line 139, ../sass/main.scss */
+  /* line 150, ../sass/main.scss */
   .tablet_project:after {
     content: "\e65d";
     bottom: 0em;
@@ -1693,7 +1708,7 @@ html, body {
     color: #fc4750;
   }
 
-  /* line 148, ../sass/main.scss */
+  /* line 159, ../sass/main.scss */
   .ereader_project:after {
     content: "\e65c";
     bottom: 0em;
@@ -1702,39 +1717,50 @@ html, body {
     color: #992c7e;
   }
 
-  /* line 157, ../sass/main.scss */
+  /* line 168, ../sass/main.scss */
   .android_project:after {
     content: "\e649";
     color: #a4c639;
   }
 }
 @media (min-width: 47.9375em) {
-  /* line 165, ../sass/main.scss */
+  /* line 176, ../sass/main.scss */
   #main_container {
     width: 70%;
     margin: 0 auto;
   }
 
-  /* line 169, ../sass/main.scss */
+  /* line 180, ../sass/main.scss */
   .git_element {
     width: 47%;
     float: left;
-    min-height: 5.8em;
+    min-height: 8.9em;
     margin: 0.6em 1.5%;
+  }
+  /* line 185, ../sass/main.scss */
+  .git_element .description {
+    padding-right: 8%;
   }
 }
 @media (min-width: 61.9375em) {
-  /* line 178, ../sass/main.scss */
+  /* line 192, ../sass/main.scss */
   #main_container > header h1 {
     font-size: 1.3em;
   }
 
-  /* line 181, ../sass/main.scss */
+  /* line 195, ../sass/main.scss */
   .git_element {
     width: 30%;
-    min-height: 9em;
+    min-height: 10.8em;
+    /* &.has_description{
+    	width: 60%;
+    } */
   }
-  /* line 184, ../sass/main.scss */
+  /* line 201, ../sass/main.scss */
+  .git_element .description {
+    padding-right: 20%;
+  }
+  /* line 204, ../sass/main.scss */
   .git_element:after {
     position: absolute;
     right: -0.15em;
@@ -1742,33 +1768,37 @@ html, body {
     font-size: 4em;
   }
 
-  /* line 192, ../sass/main.scss */
+  /* line 212, ../sass/main.scss */
   .robotic_project:after {
     font-size: 5em;
   }
 
-  /* line 199, ../sass/main.scss */
+  /* line 219, ../sass/main.scss */
   .smartphone_project:after,
   .ereader_project:after {
     bottom: 0;
     right: -0.18em;
   }
 
-  /* line 205, ../sass/main.scss */
+  /* line 225, ../sass/main.scss */
   .tablet_project:after {
     bottom: 0;
     right: -0.12em;
   }
 
-  /* line 210, ../sass/main.scss */
+  /* line 230, ../sass/main.scss */
   #view_on_github {
     margin-top: 6em;
   }
 }
 @media (min-width: 74.9375em) {
-  /* line 215, ../sass/main.scss */
+  /* line 235, ../sass/main.scss */
   .git_element {
     font-size: 1.2em;
     margin-top: 2em;
+  }
+  /* line 238, ../sass/main.scss */
+  .git_element .description {
+    font-size: 0.8em;
   }
 }
