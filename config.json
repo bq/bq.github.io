@@ -12,7 +12,7 @@
 		"android-bootanimation-checker":"android_project",
 		"edison-2" : "tablet_project",
 		"robopad-plusplus" : "robotic_project",
-		"drag-drop-grid" : "android_projet", 
+		"drag-drop-grid" : "android_project", 
 		"aquaris-5.7":"smartphone_project",
 		"aquaris-5":"smartphone_project"},
 	"unwanted_repositories":{
