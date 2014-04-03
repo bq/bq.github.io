@@ -11,6 +11,8 @@
 		"cervantes":"ereader_project",
 		"android-bootanimation-checker":"android_project",
 		"edison-2" : "tablet_project",
+		"robopad-plusplus" : "robotic_project",
+		"drag-drop-grid" : "android_projet", 
 		"aquaris-5.7":"smartphone_project",
 		"aquaris-5":"smartphone_project"},
 	"unwanted_repositories":{
