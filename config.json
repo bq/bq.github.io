@@ -21,7 +21,6 @@
 	"unwanted_repositories":{
 		"chat-kata":"false",
 		"chat-kata-extended":"false",
-		"bq.github.io":"false",
-                "aquaris-5.7" : "false"
+		"bq.github.io":"false"
 	}
 }
