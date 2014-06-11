@@ -21,6 +21,8 @@
 	"unwanted_repositories":{
 		"chat-kata":"false",
 		"chat-kata-extended":"false",
+		"Marlin":"false",
+		"Cura":"false",
 		"bq.github.io":"false"
 	}
 }
