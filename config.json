@@ -18,6 +18,7 @@
 		"drag-drop-grid" : "android_project", 
 		"aquaris-5.7":"smartphone_project",
 		"aquaris-4.5":"smartphone_project",
+		"aquaris-3.5":"smartphone_project",
 		"aquaris-4":"smartphone_project",
 		"aquaris-5":"smartphone_project"},
 	"unwanted_repositories":{
