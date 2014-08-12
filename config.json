@@ -21,6 +21,7 @@
 		"aquaris-3.5":"smartphone_project",
 		"aquaris-4":"smartphone_project",
 		"aquaris-E4.5":"smartphone_project",
+		"aquaris-E5":"smartphone_project",
 		"aquaris-5":"smartphone_project"},
 	"unwanted_repositories":{
 		"chat-kata":"false",
