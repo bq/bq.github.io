@@ -29,6 +29,11 @@
 		"chat-kata-extended":"false",
 		"Marlin":"false",
 		"Cura":"false",
+		"prusa-i3-hephestos":"false",
+		"hbs-helpers":"false",
+		"opencv":"false",
+		"browser-hooq":"false",
+		"Cyclone-PCB-Factory" :"false",
 		"bq.github.io":"false"
 	}
 }
