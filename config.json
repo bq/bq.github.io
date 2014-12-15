@@ -8,12 +8,16 @@
 	"repositories_clases": {
 		"droid2ino":"robotic_project",
 		"robopad":"robotic_project",
+		"printbots":"robotic_project",
+		"roboblocks":"robotic_project",
+		"blockly":"robotic_project",
 		"cervantes":"ereader_project",
 		"android-bootanimation-checker":"android_project",
 		"edison-2" : "tablet_project",
 		"curie-2" : "tablet_project",
 		"maxwell-2" : "tablet_project",
 		"newton" : "tablet_project", 
+		"edison-3" : "tablet_project",
 		"robopad-plusplus" : "robotic_project",
 		"drag-drop-grid" : "android_project", 
 		"aquaris-5.7":"smartphone_project",
@@ -22,8 +26,10 @@
 		"aquaris-4":"smartphone_project",
 		"aquaris-E4.5":"smartphone_project",
 		"aquaris-E5":"smartphone_project",
+		"aquaris-E6":"smartphone_project",
 		"aquaris-5HD":"smartphone_project",
-		"aquaris-5":"smartphone_project"},
+		"aquaris-5":"smartphone_project"
+	},
 	"unwanted_repositories":{
 		"chat-kata":"false",
 		"chat-kata-extended":"false",
@@ -32,8 +38,13 @@
 		"prusa-i3-hephestos":"false",
 		"hbs-helpers":"false",
 		"opencv":"false",
+		"diwo":"false",
+		"witbox":"false",
 		"browser-hooq":"false",
 		"Cyclone-PCB-Factory" :"false",
+		"printbot_part_library" :"false",
+		"blockly-bq" : "false",
+		"iOS-Scripting-PackageApplication-Swift-Support" :"false",
 		"bq.github.io":"false"
 	}
 }
