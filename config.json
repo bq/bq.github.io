@@ -28,7 +28,9 @@
 		"aquaris-E5":"smartphone_project",
 		"aquaris-E6":"smartphone_project",
 		"aquaris-5HD":"smartphone_project",
-		"aquaris-5":"smartphone_project"
+        "aquaris-E5-4G":"smartphone_project",
+		"aquaris-5":"smartphone_project",
+        "aquaris-E10":"tablet_project"
 	},
 	"unwanted_repositories":{
 		"chat-kata":"false",
@@ -44,7 +46,10 @@
 		"Cyclone-PCB-Factory" :"false",
 		"printbot_part_library" :"false",
 		"blockly-bq" : "false",
+        "corbel-js" : "false",
+        "bitbloq-serial-uploader" : "false",
 		"iOS-Scripting-PackageApplication-Swift-Support" :"false",
 		"bq.github.io":"false"
+
 	}
 }
