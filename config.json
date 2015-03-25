@@ -49,6 +49,18 @@
         "corbel-js" : "false",
         "bitbloq-serial-uploader" : "false",
 		"iOS-Scripting-PackageApplication-Swift-Support" :"false",
+        "horus": "false",
+        "horus-fw" : "false",
+        "ciclop" : "false",
+        "zum" : "false",
+        "cool-helpers", "false",
+        "oss-parents", "false",
+        "linux-e60622", "false",
+        "linux-e60q22", "false",
+        "kiui", "false",
+        "kiui-themes", "false",
+        "msm8916_platform_vendor_qcom-opensource_wlan_prima", "false",
+        "corbel-composer", "false",
 		"bq.github.io":"false"
 
 	}
