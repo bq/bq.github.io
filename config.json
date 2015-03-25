@@ -61,6 +61,12 @@
         "kiui-themes": "false",
         "msm8916_platform_vendor_qcom-opensource_wlan_prima": "false",
         "corbel-composer": "false",
+        "lib-rabbitmq": "false",
+        "bloqs": "false",
+        "zowi": "false",
+        "corbel": "false",
+        "lib-mongodb": "false",
+        "lib-config": "false",
 		"bq.github.io":"false"
 
 	}
