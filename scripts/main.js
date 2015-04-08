@@ -3,6 +3,11 @@ function addRepos($repository_list){
 	var repoType='';
 	var uri="https://api.github.com/orgs/bq/repos?access_token=4398eb67e5de5f45d3323743b809980a827e3f2f&per_page=100";
 	$.getJSON(uri,function(json){
+		json.sort(function(a,b) {
+     			var x = a.id;
+     			var y = b.id;
+     			return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+		})
 		$.each(json,function(index,element){
 			if (typeof unwanted_repositories[element.name] == "undefined") {
 				buildRepo(element,$repository_list);
