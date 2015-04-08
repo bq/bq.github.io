@@ -67,6 +67,12 @@
         	"corbel": "false",
         	"lib-mongodb": "false",
         	"lib-config": "false",
+		"lib-token": "false",
+		"lib-cli": "false",
+		"elasticsearch-docker": "false",
+		"lib-ws": "false",
+		"lib-queries": "false",
+		"corejs-generator": "false",
 		"bq.github.io":"false"
 	}
 }
