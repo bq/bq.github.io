@@ -95,7 +95,7 @@ function handleMixItUp() {
                 $('.project').each(function() {
 
                     // add item to be filtered out if input text matches items inside the title
-                    if($('this').children('.project__title').children('em').text().toLowerCase().match(inputText)) {
+                    if($(this).children('.project__title').children('em').text().toLowerCase().match(inputText)) {
                         $matching = $matching.add(this);
                     }
                     else {
