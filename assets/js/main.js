@@ -11,31 +11,37 @@ function getGithubProjects() {
         type: "GET",
         url: 'https://api.github.com/orgs/bq/repos?callback=?',
         data: { type: "all", per_page: 500},
-        dataType: 'json',
-        success: function(resp) {
+        dataType: 'json'
+    }).done(function(resp) {
 
-            if (resp.data.length > 0) {
+        if (resp.data.length > 0) {
 
-                loader.remove();
+            loader.remove();
 
-                $.each(resp.data, function (i) {
-                    setMarkupRepo(resp.data[i]);
-                });
+            $.each(resp.data, function (i) {
+                setMarkupRepo(resp.data[i]);
+            });
 
-                handleMixItUp();
-            }
-            else {
-                loader.remove();
-                projectList.html('<p class="align-center">Repositories have failed loaded.</p>');
-            }
+            handleMixItUp();
+
+        } else {
+
+            loader.remove();
+            projectList.html('<p class="align-center">Could not show any repository</p>');
+
         }
+    }).fail(function() {
+
+        loader.remove();
+        projectList.html('<p class="align-center">Repositories have failed loaded.</p>');
+
     });
 }
 
 function setMarkupRepo(data) {
 
     projectList.append(
-        '<div class="project " data-language="' + (data['language'] ? data['language'] : 'other') + '">'
+        '<div class="project" data-star="' + data['stargazers_count']+ '" data-language="' + (data['language'] ? data['language'] : 'other') + '">'
         +  '<a class="project__title" href="' + data['html_url'] + '">'
         +     '<em>' + data['name'] + '</em>'
         +  '</a>'
@@ -58,17 +64,43 @@ function handleMixItUp() {
     var inputText;
     var $matching = $();
     var $searcher = $(".searcher__input");
+    var languageList = ['JavaScript', 'CSS', 'C++', 'C', 'Java', 'Ruby'];
 
     projectList.mixItUp({
         selectors: {
             target: '.project'
+        },
+        load: {
+            sort: 'star:desc'
+        },
+        callbacks: {
+            onMixFail: function(state){
+                if(state.activeFilter == 'none') {
+                    $('.project').each(function() {
+                        if( $.inArray($(this).attr('data-language'), languageList) == -1 ){
+                            $matching = $matching.add(this);
+                        }
+                    });
+                    projectList.mixItUp('filter', $matching);
+                    $('.custom').addClass('active');
+                } else {
+
+                    if ($('.no-match').length < 1) {
+                        projectList.prepend('<p class="no-match">There are no results that match your search</p>');   
+                    }
+                    $('.no-match').addClass('hidden-match');
+                }
+            },
+            onMixStart: function(state){
+                $('.no-match').removeClass('hidden-match');
+            }
         }
     });
 
     $('.filter').on('click', function(e) {
         e.preventDefault();
         $searcher.val('');
-    })
+    });
 
     $('.searcher').on('submit', function(e) {
         e.preventDefault();
