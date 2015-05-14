@@ -91,7 +91,7 @@ function handleMixItUp() {
                     $('.no-match').addClass('hidden-match');
                 }
             },
-            onMixStart: function(state){
+            onMixStart: function(){
                 $('.no-match').removeClass('hidden-match');
             }
         }
