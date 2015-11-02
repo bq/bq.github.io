@@ -1,0 +1,23 @@
+language: ruby
+rvm:
+- 2.2.0
+notifications:
+  email:
+    recipients: front-end@bq.com
+    on_success: change
+    on_failure: never
+before_install:
+- npm install -g bower
+- gem install bundler
+install:
+- bower install
+- bundle install
+script:
+- bundle exec jekyll build
+- bash ./travis-deployer.sh
+branches:
+  only:
+  - master
+env:
+  global:
+    secure: "RwUTyQ0fD1RezBJK7d+iVROXamfiKrkXbkONL7aFMOtYGze1gYCRRyCcnSHhnvzY4MW7HCzee/pUj9eqcaHzUsLkW1IOmm0201J855PiPOsDdF4WxNLCaokNke4RZ1D6oqXXw7TUgWWhSwPon/u2WoDyHXF2IGao+t41SH2D13M="

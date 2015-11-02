@@ -1,0 +1,67 @@
+<footer class="footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer__title">{{ site.title }}</h3>
+    <p class="footer__description">{{ site.description }}</p>
+
+    <ul class="social-media-list">
+
+      {% if site.email %}
+      <li class="social-media-list__item">
+        <a href="mailto:{{ site.email }}">
+          <span class="svg-icon email"></span>
+          {{ site.email }}
+        </a>
+      </li>
+      {% endif %}
+
+      {% if site.mybq %}
+      <li class="social-media-list__item">
+        <a href="http://www.mibqyyo.com/">
+          <span class="svg-icon bq"></span>
+          {{ site.mybq }}
+        </a>
+      </li>
+      {% endif %}
+
+      {% if site.github_username %}
+      <li class="social-media-list__item">
+        <a href="https://github.com/{{ site.github_username }}">
+          <span class="svg-icon github"></span>
+          GitHub
+        </a>
+      </li>
+      {% endif %}
+
+      {% if site.facebook_username %}
+      <li class="social-media-list__item">
+        <a href="https://www.facebook.com/{{ site.facebook_username }}">
+          <span class="svg-icon facebook"></span>
+          Facebook
+        </a>
+      </li>
+      {% endif %}
+
+      {% if site.twitter_username %}
+      <li class="social-media-list__item">
+        <a href="https://twitter.com/{{ site.twitter_username }}">
+          <span class="svg-icon twitter"></span>
+          Twitter
+        </a>
+      </li>
+      {% endif %}
+
+      {% if site.googleplus_username %}
+      <li class="social-media-list__item">
+        <a href="https://plus.google.com/{{ site.googleplus_username }}">
+          <span class="svg-icon googleplus"></span>
+          Google Plus
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+
+  </div>
+
+</footer>

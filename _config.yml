@@ -1,0 +1,37 @@
+# Site settings
+title: bq Open Source
+description: >
+  We believe in open source, here are some of the internally-developed libraries we have contributed
+  back to the community.
+url: "http://opensource.bq.com"
+baseurl: ""
+
+
+# Contact
+email: opensource@bq.com
+mybq: Mi bq y yo
+
+
+# Social user names
+github_username     : bq
+twitter_username    : bqreaders
+facebook_username   : bqreaders
+googleplus_username : +bqreaders
+
+
+# Build settings
+markdown: kramdown
+
+
+# Sass configuration
+sass:
+  sass_dir: assets/css
+  style: compressed
+
+
+# Plugins
+gems: [susy]
+
+
+# Exclude files
+exclude: [travis-deployer.sh, bower.json, editorconfig, Gemfile, Gemfile.lock, ./**/*.scss]

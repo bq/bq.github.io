@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    # logo
+\*------------------------------------*/
+
+.logo {
+  @include span(1 of 12);
+}
+
+
+.logo__icon {
+  width: 28px;
+  display: inline-block;
+
+  > svg > path {
+    fill: $brand-primary-color;
+  }
+}

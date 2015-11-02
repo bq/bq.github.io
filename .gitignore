@@ -1,0 +1,8 @@
+.DS_Store
+.tmp
+.sass-cache
+bower_components
+Gemfile.lock
+_site
+.idea
+*.log

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <main>
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <!-- jQuery -->
+    <script src="{{ "/bower_components/jquery/dist/jquery.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- MixItUp -->
+    <script src="{{ "/bower_components/mixitup/build/jquery.mixitup.min.js" | prepend: site.baseurl }}"></script>
+
+    <!-- Components demo -->
+    <script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
+
+  </body>
+
+</html>

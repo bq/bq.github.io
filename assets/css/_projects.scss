@@ -1,0 +1,225 @@
+/*------------------------------------*\
+    # Projects list
+\*------------------------------------*/
+
+.projects-directory {
+  margin: 5em auto;
+  @include container;
+}
+
+  .projects-list {
+    min-height: 40px;
+  }
+
+
+  .project {
+    @include span(4 of 12);
+    word-wrap: break-word;
+    margin-bottom: 2.5em;
+    vertical-align: top;
+    margin-left: -0.188em;
+    display: none;
+    float: none;
+
+    &.clear {
+      @include break;
+    }
+  }
+
+    .project__title {
+      color: $main-color;
+      font-size: 1.2em;
+      text-transform: capitalize;
+
+      em {
+        font-style: normal;
+      }
+    }
+
+
+    .project__stats,
+    .project__homepage,
+    .project__description {
+      font-size: 0.750em;
+      margin-top: 0.475em;
+      color: $brand-primary-color;
+    }
+
+
+    .project__homepage {
+      a {
+        color: $highlight-color;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .octicon {
+        font-size: 1em;
+      }
+    }
+
+
+    .project__stats {
+      .octicon {
+        font-size: 1em;
+        margin-left: 0.5em;
+      }
+    }
+
+.no-match {
+  height: 0;
+  text-align: center;
+
+  opacity: 0;
+    -webkit-transform: scale(0); /* Safari */
+        -ms-transform: scale(0); /* IE 9 */
+            transform: scale(0);
+  
+  -webkit-transition: all 200ms; /* Safari */
+          transition: all 200ms;
+
+  &.hidden-match {
+    opacity: 1;
+    height: auto;
+    -webkit-transform: scale(1); /* Safari */
+        -ms-transform: scale(1); /* IE 9 */
+            transform: scale(1);
+    
+  } 
+}
+
+
+@media (max-width: $md) {
+
+  .projects-directory {
+    margin: 4em auto;
+  }
+
+}
+
+
+@media (max-width: $md) {
+
+  .projects-directory {
+    margin: 2em auto;
+  }
+
+  .project {
+    @include span(6 of 12);
+    float: none;
+  }
+
+}
+
+
+@media (max-width: $sm) {
+
+  .project {
+    @include span(12 of 12);
+  }
+
+}
+
+
+
+
+
+/*------------------------------------*\
+    # Filter
+\*------------------------------------*/
+
+.filter_list {
+  text-align: right;
+  padding-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit;
+  border-bottom: 1px solid $brand-secondary-color;
+}
+
+
+  .filter__title {
+    font-style: normal;
+    font-weight: normal;
+    color: $brand-primary-color;
+    display: inline-block;
+    float: left;
+
+
+    .icon {
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      margin-top: 0.333em;
+
+      svg > path {
+        fill: $brand-primary-color;
+      }
+    }
+  }
+
+
+  .filter__menu {
+    margin-top: 0.188em;
+    letter-spacing: 0.03em;
+  }
+
+
+    .filter__menu__item {
+      font-size: 0.750em;
+      text-transform: uppercase;
+      margin-left: 2.143em;
+      display: inline;
+    }
+
+
+      .filter__menu__link {
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        &:hover,
+        &.active {
+          color: $highlight-color;
+        }
+      }
+
+
+@media (max-width: $md) {
+
+  .filter_list {
+    text-align: left;
+  }
+
+  .filter__title {
+    float: none;
+    display: block;
+    margin-bottom: 0.375em;
+  }
+
+
+  .filter__menu {
+    float: none;
+  }
+
+
+    .filter__menu__item {
+      margin: 0.4em;
+      display: inline-block;
+    }
+
+
+      .filter__menu__link {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid $brand-secondary-color;
+        display: inline-block;
+
+        &:hover,
+        &.active {
+          border-color: $highlight-color;
+        }
+      }
+
+}

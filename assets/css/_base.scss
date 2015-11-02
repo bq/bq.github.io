@@ -1,0 +1,43 @@
+html {
+  background: $foreground-color;
+}
+
+body {
+  background: #fff;
+  padding: $spacing-unit * 2;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: $main-color;
+}
+
+.wrapper {
+  @include container;
+}
+
+a {
+  color: $brand-primary-color;
+
+  &:hover,
+  &.active {
+    text-decoration: none;
+    color: $highlight-color;
+  }
+}
+
+
+::selection {
+  color: #fff;
+  background: $highlight-color; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  color: #fff;
+  background: $highlight-color; /* Gecko Browsers */
+}
+
+@media (max-width: $md) {
+  body {
+    padding: $spacing-unit;
+  }
+}

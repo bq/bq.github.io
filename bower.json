@@ -1,0 +1,29 @@
+{
+  "name": "bq-open-source",
+  "version": "0.0.0",
+  "authors": [
+    "Jose Manuel Guzman (josemanuel.guzman@bq.com)"
+  ],
+  "description": "We believe in open source, here are some of the internally-developed libraries we have contributed",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "bq",
+    "opensource"
+  ],
+  "license": "MIT",
+  "homepage": "http://opensource.bq.com/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "penguin": "~0.0.4",
+    "octicons": "~2.2.2",
+    "mixitup": "~2.1.7"
+  }
+}

@@ -1,0 +1,67 @@
+.footer {
+  padding: $spacing-unit * 2;
+  margin: 0 -($spacing-unit * 2);
+  background: $foreground-color;
+}
+
+
+  .wrapper {
+    @include container;
+  }
+
+
+  .footer__title {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: $brand-primary-color;
+    font-family: $headings-font-family;
+  }
+
+
+  .footer__description {
+    font-size: 0.75em;
+    margin: 1em 0 2.5em;
+    color: $brand-primary-color;
+  }
+
+
+  .social-media-list {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+
+
+    .social-media-list__item {
+      display: inline-block;
+      margin-right: 4.5em;
+    }
+
+
+@media (max-width: $lg) {
+
+  .social-media-list__item {
+    margin-right: 2em;
+    margin-bottom: 0.5em;
+  }
+
+}
+
+
+@media (max-width: $md) {
+
+  .footer {
+    padding: $spacing-unit;
+    margin: 0 -($spacing-unit);
+  }
+
+}
+
+
+@media (max-width: $xs) {
+
+  .social-media-list__item {
+    margin-right: 0;
+    display: block;
+  }
+
+}
