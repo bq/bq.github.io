@@ -3,33 +3,43 @@
 var projectList = $('.projects-list');
 
 
-function getGithubProjects() {
+function getGithubProjects(organizations) {
 
     var loader = $('.loader');
 
-    $.ajax({
+    var ajaxRequests = organizations.map(function (org){
+      return $.ajax({
         type: "GET",
-        url: 'https://api.github.com/orgs/bq/repos?callback=?',
-        data: { type: "all", per_page: 500},
-        dataType: 'json'
-    }).done(function(resp) {
+        url: 'https://api.github.com/orgs/' + org.name + '/repos?callback=?',
+        data: { type: "all", per_page: 500, access_token: 'bd9378ce224e50ff24ccf94bfef188a7307c855f'},
+        dataType: 'json',
+      });
+    });
 
-        if (resp.data.length > 0) {
+    $.when
+      .apply(this, ajaxRequests)
+      .done(function() {
+        $.each(arguments, function(index, resp){
 
-            loader.remove();
+          if(resp[0]){
+            resp = resp[0];
+          }
+          if (resp.data.length > 0) {
+              loader.remove();
 
-            $.each(resp.data, function (i) {
-                setMarkupRepo(resp.data[i]);
-            });
+              $.each(resp.data, function (i) {
+                  setMarkupRepo(resp.data[i], organizations[index].icon);
+              });
 
-            handleMixItUp();
+          } else {
+              loader.remove();
+              projectList.html('<p class="align-center">Could not show any repository</p>');
 
-        } else {
+          }
+      });
 
-            loader.remove();
-            projectList.html('<p class="align-center">Could not show any repository</p>');
+      handleMixItUp();
 
-        }
     }).fail(function() {
 
         loader.remove();
@@ -38,11 +48,11 @@ function getGithubProjects() {
     });
 }
 
-function setMarkupRepo(data) {
-
+function setMarkupRepo(data, icon) {
     projectList.append(
         '<div class="project" data-star="' + data['stargazers_count']+ '" data-language="' + (data['language'] ? data['language'] : 'other') + '">'
         +  '<a class="project__title" href="' + data['html_url'] + '">'
+        +     (icon ? '<img  class="project__icon" alt="' + data['owner']['login'] + 'icon" src="' + data['owner']['avatar_url'] +  '" title="' + data['owner']['login'] +'" />' : '')
         +     '<em>' + data['name'] + '</em>'
         +  '</a>'
         +  '<p class="project__description">'
@@ -86,7 +96,7 @@ function handleMixItUp() {
                 } else {
 
                     if ($('.no-match').length < 1) {
-                        projectList.prepend('<p class="no-match">There are no results that match your search</p>');   
+                        projectList.prepend('<p class="no-match">There are no results that match your search</p>');
                     }
                     $('.no-match').addClass('hidden-match');
                 }
@@ -150,5 +160,14 @@ function handleMixItUp() {
 
 // On document load ...
 $(window).on('load', function() {
-    getGithubProjects()
+    getGithubProjects([
+      {
+        name: 'bqlabs',
+        icon: true
+      },
+      {
+        name: 'bq',
+        icon: false
+      }
+    ]);
 });

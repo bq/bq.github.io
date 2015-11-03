@@ -45,6 +45,11 @@
       color: $brand-primary-color;
     }
 
+    .project__icon{
+      width: 1em;
+      margin-right: 0.5em;
+    }
+
 
     .project__homepage {
       a {
@@ -76,7 +81,7 @@
     -webkit-transform: scale(0); /* Safari */
         -ms-transform: scale(0); /* IE 9 */
             transform: scale(0);
-  
+
   -webkit-transition: all 200ms; /* Safari */
           transition: all 200ms;
 
@@ -86,8 +91,8 @@
     -webkit-transform: scale(1); /* Safari */
         -ms-transform: scale(1); /* IE 9 */
             transform: scale(1);
-    
-  } 
+
+  }
 }
 
 
