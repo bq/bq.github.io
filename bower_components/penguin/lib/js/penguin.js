@@ -1,4 +1,4 @@
-/*! penguin - v0.0.4 - 2015-04-30 */
+/*! bq/penguin - v0.0.5 - 2015-05-22 */
 /* global define, module, require */
 
 'use strict';
@@ -85,13 +85,16 @@
         var $siblings = $link.closest('.dropdown').siblings('.dropdown').find('[data-dropdown]');
 
         this.settings.selectedClass = $menu.attr('class').split(' ')[0] + '--selected';
+        this.settings.transitionClass = 'transition';
 
 
         $link.parent().toggleClass(this.settings.selectedClass);
+        $link.parent().toggleClass(this.settings.transitionClass);
 
         // Close sibling dropdowns
         if ($siblings.length !== 0) {
             $siblings.closest('.' + this.settings.selectedClass).removeClass(this.settings.selectedClass);
+            $siblings.closest('.' + this.settings.transitionClass).removeClass(this.settings.transitionClass);
             $siblings.closest('.dropdown').removeAttr('data-selected');
         }
 
@@ -121,9 +124,11 @@
         $('.dropdown[data-selected]:not([data-nocollapse])').removeAttr('data-selected');
         $('.dropdown:not([data-nocollapse]) [data-rel="dropdown"]').each(function() {
             var className = $(this).data('penguin.dropdown').settings.selectedClass;
+            var transitionName = $(this).data('penguin.dropdown').settings.transitionClass;
             var dropdown = $(this).closest('.dropdown');
 
             dropdown.removeClass(className);
+            dropdown.removeClass(transitionName);
         });
         $('html').off('click', Dropdown.reset);
 
@@ -183,16 +188,11 @@
         show: false,
         backdrop: true,
         backdropClassName: 'modal--backdrop',
-        closeable: false,
+        closeable: true,
         classModifier: '',
-        title: '',
         content: '',
         ajaxSettings: undefined,
-        close: {
-            text: 'close',
-            className: 'icon icon--close'
-        },
-        buttons: undefined
+        transitionDuration: 350 // css transition duration + 50 ms
     };
 
     function Modal(options, container) {
@@ -229,42 +229,12 @@
         return options;
     };
 
-    Modal.buttons = function(buttons) {
-
-        var buttonsHtml = '';
-
-        $.each(buttons, function() {
-
-            if (this.url) {
-                buttonsHtml += '<a href="' + this.url + '" class="' + this.className + '">' + this.text + '</a>';
-            } else {
-                buttonsHtml += '<button type="button" class="' + this.className + '" data-close="modal">' + this.text + '</button>';
-            }
-
-        });
-
-        return buttonsHtml;
-
-    };
-
-
     Modal.prototype.render = function(settings) {
 
         var template = '<section class="modal modal--center ' + settings.backdropClassName + ' ' + settings.classModifier + '" role="dialog">';
         template += '<div class="modal__dialog">';
-        template += '<div class="modal__dialog__content">';
-
-        if (this.settings.modalContent) {
-            template += this.settings.modalContent;
-        } else {
-            template += '<div class="modal__header">';
-            template += settings.title;
-            template += settings.close;
-            template += '</div>';
-            template += '<div class="modal__body" data-region="modal-body">' + settings.content + '</div>';
-            template += settings.buttonsHtml;
-        }
-
+        template += '<div class="modal__dialog__content" data-region="modal-body">';
+        template += settings.content;
         template += '</div>';
         template += '</div>';
         template += '</section>';
@@ -282,15 +252,9 @@
         this.settings.backdropClassName = this.settings.backdrop ? (options.backdropClassName || defaults.backdropClassName) : '';
         this.settings.closeable = options.closeable || defaults.closeable;
         this.settings.classModifier = options.classModifier || defaults.classModifier;
-        this.settings.close = options.close || defaults.close;
-        this.settings.close = this.settings.close ? '<button type="button" title="' + this.settings.close.text + '" data-close="modal" class="modal__close"><i class="' + this.settings.close.className + '" aria-hidden="true"></i><span class="invisible">' + this.settings.close.text + '</span></button>' : '';
-        this.settings.title = options.title || defaults.title;
-        this.settings.title = this.settings.title ? '<h1 class="modal__header__title">' + this.settings.title + '</h1>' : '';
         this.settings.content = options.content || defaults.content;
         this.settings.ajaxSettings = options.ajaxSettings || defaults.ajaxSettings;
-        this.settings.buttons = options.buttons || defaults.buttons;
-        this.settings.buttonsHtml = this.settings.buttons ? '<div class="modal__footer"><div class="btn-group text-' + this.settings.buttons.align + '">' + Modal.buttons(this.settings.buttons.btn) + '</div></div>' : '';
-        this.settings.modalContent = options.template;
+        this.settings.transitionDuration = options.transitionDuration || defaults.transitionDuration;
     };
 
     Modal.initAttr = function() {
@@ -321,6 +285,11 @@
 
         var ajaxSettings = this.settings.ajaxSettings;
 
+        var transitionAdd = function() {
+            $(this.$el)[0].offsetWidth // force reflow
+            $(this.$el).addClass('transition');
+        }.bind(this);
+
         if (!this.visible) {
             if (this.$container.selector !== 'body') {
                 this.$container.addClass('modal-parent');
@@ -330,11 +299,13 @@
 
             if (ajaxSettings) {
                 this.request(ajaxSettings, function(data) {
+
                     $(this.$el).find('[data-region="modal-body"]').append(data);
                     this.$container.append($(this.$el));
                     this.$container.trigger($.Event('modal:ajaxLoaded', {
                         relatedTarget: event ? event.target : this.$container
-                    }));
+                    }), transitionAdd());
+
                 }.bind(this));
             } else {
                 this.$container.append(this.$el);
@@ -345,8 +316,12 @@
             }));
 
             this.visible = true;
-        }
 
+            if (!ajaxSettings) {
+                transitionAdd();
+            }
+
+        }
 
         return this;
     };
@@ -354,21 +329,32 @@
     Modal.prototype.hide = function(event) {
 
         if (this.visible) {
-            $(this.$el).remove();
-            $(this.$el).off();
 
-            this.$container.removeClass('modal-parent');
-            this.$container.removeClass('modal--backdrop');
+            var hideModal = function() {
+                $(this.$el).remove();
+                $(this.$el).off();
 
-            this.$container.trigger($.Event('modal:hide', {
-                relatedTarget: event ? event.target : this.$container
-            }));
+                this.$container.removeClass('modal-parent');
+                this.$container.removeClass('modal--backdrop');
 
-            this.$container.data('penguin.modal', null);
+                this.$container.trigger($.Event('modal:hide', {
+                    relatedTarget: event ? event.target : this.$container
+                }));
 
-            $(document).off('keyup');
+                this.$container.data('penguin.modal', null);
 
-            this.visible = false;
+                $(document).off('keyup');
+
+                this.visible = false;
+            }.bind(this);
+
+
+            this.$el.one('penguinTransitionEnd', function() {
+                hideModal();
+            });
+            this.$el.emulateTransitionEnd(this.settings.transitionDuration);
+            this.$el.removeClass('transition');
+
         }
 
         return this;
@@ -376,10 +362,9 @@
     };
 
     Modal.prototype.bindEvents = function() {
+
         // Closeable from backdrop
         if (this.settings.closeable) {
-
-            $(this.$el).on('click', $.proxy(this.hide, this));
 
             $(document).on('keyup', $.proxy(function(e) {
                 if (e.keyCode == 27) { // esc
@@ -387,15 +372,19 @@
                 }
             }, this));
 
-            $(this.$el).find('.modal__dialog__content').on('click', function(event) {
+            $(this.$el).on('click', this.hide.bind(this));
+
+            $(this.$el).on('click', '.modal__dialog__content', function(event) {
+                event.stopPropagation();
+            });
+
+            $(this.$el).on('click', '[data-close="modal"]', function(event) {
                 event.stopPropagation();
             });
         }
 
-        // Icon close event
-        if (this.settings.close) {
-            $(this.$el).find('[data-close="modal"]').on('click', $.proxy(this.hide, this));
-        }
+
+        $(this.$el).on('click', '[data-close="modal"]', this.hide.bind(this));
 
         return this;
 
@@ -472,14 +461,21 @@
         factory(root.$); // Browser global
     }
 })
+
+
 (function($) {
+
+    $('body').one('penguinTransitionEnd', function(event) {
+        console.log('terminó un transition');
+    });
 
     var defaults = {
         spinnerClass: 'spinner__element--circle',
         text: 'Loading...',
         show: false,
         backdrop: true,
-        backdropClassName: 'spinner--backdrop'
+        backdropClassName: 'spinner--backdrop',
+        transitionDuration: 350 // css transition duration + 50 ms
     };
 
     function Spinner(options, container) {
@@ -512,10 +508,16 @@
         this.settings.backdropClassName = this.settings.backdrop ? (options.backdropClassName || defaults.backdropClassName) : '';
         this.settings.spinnerClass = options.spinnerClass || defaults.spinnerClass;
         this.settings.spinnerContent = options.template || '<div class="spinner__element ' + this.settings.spinnerClass + '">' + this.settings.text + '</div>';
+        this.settings.transitionDuration = options.transitionDuration || defaults.transitionDuration;
 
     };
 
     Spinner.prototype.show = function(event) {
+
+        var transitionAdd = function() {
+            $(this.$el)[0].offsetWidth // force reflow
+            $(this.$el).addClass('transition');
+        }.bind(this);
 
         if (!this.visible) {
             if (this.$container.selector !== 'body') {
@@ -528,7 +530,7 @@
 
             this.$container.trigger($.Event('spinner:show', {
                 relatedTarget: event ? event.target : this.$container
-            }));
+            }), transitionAdd());
 
             this.$container.data('penguin.modal', null);
 
@@ -542,18 +544,30 @@
     Spinner.prototype.hide = function(event) {
 
         if (this.visible) {
-            this.$el.remove();
 
-            this.$container.removeClass('spinner-parent');
-            this.$container.removeClass('spinner--backdrop');
+            var hideSpinner = function() {
+                this.$el.remove();
+                this.$el.off();
 
-            this.$container.trigger($.Event('spinner:hide', {
-                relatedTarget: event ? event.target : this.$container
-            }));
+                this.$container.removeClass('spinner-parent');
+                this.$container.removeClass('spinner--backdrop');
 
-            this.$container.removeData('penguin.spinner');
+                this.$container.trigger($.Event('spinner:hide', {
+                    relatedTarget: event ? event.target : this.$container
+                }));
 
-            this.visible = false;
+                this.$container.removeData('penguin.spinner');
+
+                this.visible = false;
+            }.bind(this);
+
+
+            this.$el.one('penguinTransitionEnd', function() {
+                hideSpinner();
+            });
+            this.$el.emulateTransitionEnd(this.settings.transitionDuration);
+            this.$el.removeClass('transition');
+
         }
 
         return this;
@@ -691,6 +705,79 @@
 
         $('[data-tab]').tab();
 
+    });
+
+}, window);
+
+/* global define, module, require */
+
+'use strict';
+
+(function(factory, root) {
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], factory); // AMD
+    } else if (typeof exports === 'object') {
+        module.exports = factory(require('jquery')); // Node
+    } else {
+        factory(root.$); // Browser global
+    }
+})
+(function($) {
+
+    var transitionEnd = function() {
+
+        var el = document.createElement('transition')
+
+        var transEndEventNames = {
+            WebkitTransition: 'webkitTransitionEnd',
+            MozTransition: 'transitionend',
+            OTransition: 'oTransitionEnd otransitionend',
+            transition: 'transitionend'
+        }
+
+        for (var name in transEndEventNames) {
+            if (el.style[name] !== undefined) {
+                return {
+                    end: transEndEventNames[name]
+                }
+            }
+        }
+
+    }
+
+    // http://blog.alexmaccaw.com/css-transitions
+    $.fn.emulateTransitionEnd = function(duration) {
+
+        var called = false,
+            $el = $(this);
+
+        $el.one('penguinTransitionEnd', function() {
+            called = true;
+        });
+
+        var callback = function() {
+            if (!called) {
+                $($el).trigger('penguinTransitionEnd');
+            };
+        };
+
+        setTimeout(callback, duration);
+
+        return this
+    };
+
+    $(function() {
+        $.support.transition = transitionEnd()
+
+        if (!$.support.transition) return
+
+        $.event.special.penguinTransitionEnd = {
+            bindType: $.support.transition.end,
+            delegateType: $.support.transition.end,
+            handle: function(e) {
+                if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+            }
+        }
     });
 
 }, window);

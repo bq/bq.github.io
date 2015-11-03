@@ -1,6 +1,22 @@
 MixItUp ChangeLog
 =================
 
+## 2.1.11
+- Fixed strict-mode TypeError affecting latest Safari/iOS9 when deleting a dataset property
+- Removed all trailing whitespace
+
+## 2.1.10
+- Fixed accidental global declaration of `unBrake` in the _cleanUp method
+- Force ES5 "Strict Mode"
+- Re-added package.json "version" parameter, as required by grunt bump task during build
+
+## 2.1.9
+- Fixed accidental global declaration of `i` in one loop.
+
+## 2.1.8
+- Fixed issue where bound handlers are not removed from prototype when destroying a MixItUp instance
+- Wrapped _updateControls .filter() call in a try/catch to prevent jQuery syntax errors crashing MixItUp when complex selectors are passed via the API
+
 ## 2.1.7
 - Fixed removeStyle jQuery method to account for camel-cased style properties in firefox, affecting animateResizeTargets.
 - Replaced all == with ===
@@ -35,7 +51,7 @@ MixItUp ChangeLog
 - Added new static API methods for extending $.MixItUp prototype, and hooking actions and filters.
 
 ## 2.0.6
-- Retain scroll position if container height change decreases document height while filtering out targets. 
+- Retain scroll position if container height change decreases document height while filtering out targets.
 - Fixed animation bug when sorting by 'default:desc'.
 
 ## 2.0.5

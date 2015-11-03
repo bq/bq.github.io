@@ -17,16 +17,11 @@
         show: false,
         backdrop: true,
         backdropClassName: 'modal--backdrop',
-        closeable: false,
+        closeable: true,
         classModifier: '',
-        title: '',
         content: '',
         ajaxSettings: undefined,
-        close: {
-            text: 'close',
-            className: 'icon icon--close'
-        },
-        buttons: undefined
+        transitionDuration: 350 // css transition duration + 50 ms
     };
 
     function Modal(options, container) {
@@ -63,42 +58,12 @@
         return options;
     };
 
-    Modal.buttons = function(buttons) {
-
-        var buttonsHtml = '';
-
-        $.each(buttons, function() {
-
-            if (this.url) {
-                buttonsHtml += '<a href="' + this.url + '" class="' + this.className + '">' + this.text + '</a>';
-            } else {
-                buttonsHtml += '<button type="button" class="' + this.className + '" data-close="modal">' + this.text + '</button>';
-            }
-
-        });
-
-        return buttonsHtml;
-
-    };
-
-
     Modal.prototype.render = function(settings) {
 
         var template = '<section class="modal modal--center ' + settings.backdropClassName + ' ' + settings.classModifier + '" role="dialog">';
         template += '<div class="modal__dialog">';
-        template += '<div class="modal__dialog__content">';
-
-        if (this.settings.modalContent) {
-            template += this.settings.modalContent;
-        } else {
-            template += '<div class="modal__header">';
-            template += settings.title;
-            template += settings.close;
-            template += '</div>';
-            template += '<div class="modal__body" data-region="modal-body">' + settings.content + '</div>';
-            template += settings.buttonsHtml;
-        }
-
+        template += '<div class="modal__dialog__content" data-region="modal-body">';
+        template += settings.content;
         template += '</div>';
         template += '</div>';
         template += '</section>';
@@ -116,15 +81,9 @@
         this.settings.backdropClassName = this.settings.backdrop ? (options.backdropClassName || defaults.backdropClassName) : '';
         this.settings.closeable = options.closeable || defaults.closeable;
         this.settings.classModifier = options.classModifier || defaults.classModifier;
-        this.settings.close = options.close || defaults.close;
-        this.settings.close = this.settings.close ? '<button type="button" title="' + this.settings.close.text + '" data-close="modal" class="modal__close"><i class="' + this.settings.close.className + '" aria-hidden="true"></i><span class="invisible">' + this.settings.close.text + '</span></button>' : '';
-        this.settings.title = options.title || defaults.title;
-        this.settings.title = this.settings.title ? '<h1 class="modal__header__title">' + this.settings.title + '</h1>' : '';
         this.settings.content = options.content || defaults.content;
         this.settings.ajaxSettings = options.ajaxSettings || defaults.ajaxSettings;
-        this.settings.buttons = options.buttons || defaults.buttons;
-        this.settings.buttonsHtml = this.settings.buttons ? '<div class="modal__footer"><div class="btn-group text-' + this.settings.buttons.align + '">' + Modal.buttons(this.settings.buttons.btn) + '</div></div>' : '';
-        this.settings.modalContent = options.template;
+        this.settings.transitionDuration = options.transitionDuration || defaults.transitionDuration;
     };
 
     Modal.initAttr = function() {
@@ -155,6 +114,11 @@
 
         var ajaxSettings = this.settings.ajaxSettings;
 
+        var transitionAdd = function() {
+            $(this.$el)[0].offsetWidth // force reflow
+            $(this.$el).addClass('transition');
+        }.bind(this);
+
         if (!this.visible) {
             if (this.$container.selector !== 'body') {
                 this.$container.addClass('modal-parent');
@@ -164,11 +128,13 @@
 
             if (ajaxSettings) {
                 this.request(ajaxSettings, function(data) {
+
                     $(this.$el).find('[data-region="modal-body"]').append(data);
                     this.$container.append($(this.$el));
                     this.$container.trigger($.Event('modal:ajaxLoaded', {
                         relatedTarget: event ? event.target : this.$container
-                    }));
+                    }), transitionAdd());
+
                 }.bind(this));
             } else {
                 this.$container.append(this.$el);
@@ -179,8 +145,12 @@
             }));
 
             this.visible = true;
-        }
 
+            if (!ajaxSettings) {
+                transitionAdd();
+            }
+
+        }
 
         return this;
     };
@@ -188,21 +158,32 @@
     Modal.prototype.hide = function(event) {
 
         if (this.visible) {
-            $(this.$el).remove();
-            $(this.$el).off();
 
-            this.$container.removeClass('modal-parent');
-            this.$container.removeClass('modal--backdrop');
+            var hideModal = function() {
+                $(this.$el).remove();
+                $(this.$el).off();
 
-            this.$container.trigger($.Event('modal:hide', {
-                relatedTarget: event ? event.target : this.$container
-            }));
+                this.$container.removeClass('modal-parent');
+                this.$container.removeClass('modal--backdrop');
 
-            this.$container.data('penguin.modal', null);
+                this.$container.trigger($.Event('modal:hide', {
+                    relatedTarget: event ? event.target : this.$container
+                }));
 
-            $(document).off('keyup');
+                this.$container.data('penguin.modal', null);
 
-            this.visible = false;
+                $(document).off('keyup');
+
+                this.visible = false;
+            }.bind(this);
+
+
+            this.$el.one('penguinTransitionEnd', function() {
+                hideModal();
+            });
+            this.$el.emulateTransitionEnd(this.settings.transitionDuration);
+            this.$el.removeClass('transition');
+
         }
 
         return this;
@@ -210,10 +191,9 @@
     };
 
     Modal.prototype.bindEvents = function() {
+
         // Closeable from backdrop
         if (this.settings.closeable) {
-
-            $(this.$el).on('click', $.proxy(this.hide, this));
 
             $(document).on('keyup', $.proxy(function(e) {
                 if (e.keyCode == 27) { // esc
@@ -221,15 +201,19 @@
                 }
             }, this));
 
-            $(this.$el).find('.modal__dialog__content').on('click', function(event) {
+            $(this.$el).on('click', this.hide.bind(this));
+
+            $(this.$el).on('click', '.modal__dialog__content', function(event) {
+                event.stopPropagation();
+            });
+
+            $(this.$el).on('click', '[data-close="modal"]', function(event) {
                 event.stopPropagation();
             });
         }
 
-        // Icon close event
-        if (this.settings.close) {
-            $(this.$el).find('[data-close="modal"]').on('click', $.proxy(this.hide, this));
-        }
+
+        $(this.$el).on('click', '[data-close="modal"]', this.hide.bind(this));
 
         return this;
 
