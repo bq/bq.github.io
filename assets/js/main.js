@@ -6,12 +6,13 @@ var projectList = $('.projects-list');
 function getGithubProjects(organizations) {
 
     var loader = $('.loader');
+    var projectsAvailable = false;
 
     var ajaxRequests = organizations.map(function (org){
       return $.ajax({
         type: "GET",
         url: 'https://api.github.com/orgs/' + org.name + '/repos?callback=?',
-        data: { type: "all", per_page: 500, access_token: 'bd9378ce224e50ff24ccf94bfef188a7307c855f'},
+        data: { type: "all", per_page: 500},
         dataType: 'json',
       });
     });
@@ -24,21 +25,27 @@ function getGithubProjects(organizations) {
           if(resp[0]){
             resp = resp[0];
           }
-          if (resp.data.length > 0) {
-              loader.remove();
 
+          if (resp.data.length > 0) {
+              projectsAvailable = true;
               $.each(resp.data, function (i) {
                   setMarkupRepo(resp.data[i], organizations[index].icon);
               });
 
           } else {
-              loader.remove();
+
+            if (index == arguments.length - 1 && $('.projects-list .project').length == 0) {
               projectList.html('<p class="align-center">Could not show any repository</p>');
+            }
 
           }
       });
 
-      handleMixItUp();
+      loader.remove();
+
+      if(projectsAvailable) {
+        handleMixItUp();
+      }
 
     }).fail(function() {
 
