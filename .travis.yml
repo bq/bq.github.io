@@ -17,7 +17,7 @@ script:
 - bash ./travis-deployer.sh
 branches:
   only:
-  - master
+  - develop
 env:
   global:
     secure: "RwUTyQ0fD1RezBJK7d+iVROXamfiKrkXbkONL7aFMOtYGze1gYCRRyCcnSHhnvzY4MW7HCzee/pUj9eqcaHzUsLkW1IOmm0201J855PiPOsDdF4WxNLCaokNke4RZ1D6oqXXw7TUgWWhSwPon/u2WoDyHXF2IGao+t41SH2D13M="
