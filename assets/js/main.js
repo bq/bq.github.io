@@ -1,5 +1,7 @@
 /* main.js */
 
+var gh = new GitHub();
+
 var projectList = $('.projects-list');
 
 
@@ -8,54 +10,23 @@ function getGithubProjects(organizations) {
     var loader = $('.loader');
     var projectsAvailable = false;
 
-    var ajaxRequests = organizations.map(function (org){
-      return $.ajax({
-        type: "GET",
-        url: 'https://api.github.com/orgs/' + org.name + '/repos?callback=?',
-        data: { type: "all", per_page: 500},
-        dataType: 'json',
-      });
-    });
+    organizations.map(function (org){
+        var organization = gh.getOrganization(org.name);
+        organization.getRepos(function(err,repos){
+            console.log(repos);
+            $.each(repos, function (i) {
+                  setMarkupRepo(repos[i], org.icon);
+            });
+            loader.remove();
+            handleMixItUp();
 
-    $.when
-      .apply(this, ajaxRequests)
-      .done(function() {
-        $.each(arguments, function(index, resp){
-
-          if(resp[0]){
-            resp = resp[0];
-          }
-
-          if (resp.data.length > 0) {
-              projectsAvailable = true;
-              $.each(resp.data, function (i) {
-                  setMarkupRepo(resp.data[i], organizations[index].icon);
-              });
-
-          } else {
-
-            if (index == arguments.length - 1 && $('.projects-list .project').length == 0) {
-              projectList.html('<p class="align-center">Could not show any repository</p>');
-            }
-
-          }
-      });
-
-      loader.remove();
-
-      if(projectsAvailable) {
-        handleMixItUp();
-      }
-
-    }).fail(function() {
-
-        loader.remove();
-        projectList.html('<p class="align-center">Repositories have failed loaded.</p>');
-
+        });      
     });
 }
 
 function setMarkupRepo(data, icon) {
+    console.log(data);
+    console.log(icon);
     projectList.append(
         '<div class="project" data-star="' + data['stargazers_count']+ '" data-language="' + (data['language'] ? data['language'] : 'other') + '">'
         +  '<a class="project__title" href="' + data['html_url'] + '">'
