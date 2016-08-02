@@ -25,8 +25,6 @@ function getGithubProjects(organizations) {
 }
 
 function setMarkupRepo(data, icon) {
-    console.log(data);
-    console.log(icon);
     projectList.append(
         '<div class="project" data-star="' + data['stargazers_count']+ '" data-language="' + (data['language'] ? data['language'] : 'other') + '">'
         +  '<a class="project__title" href="' + data['html_url'] + '">'
